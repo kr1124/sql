@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\ora>exp scott/tiger file=c:/ora/scott_data.dmp log=c:/ora/scott_data.log
 
 Export: Release 11.2.0.1.0 - Production on 목 11월 28 10:45:09 2024
@@ -119,4 +120,127 @@ IMP-00041: 경고: 컴파일 경고와 함께 객체가 작성되었습니다
  "select empno, ename, job, deptno from emp01 where deptno=20 with check opti"
  "on"
 제약 조건을 사용으로 설정에 대한 정보...
+=======
+C:\ora>exp scott/tiger file=c:/ora/scott_data.dmp log=c:/ora/scott_data.log
+
+Export: Release 11.2.0.1.0 - Production on 목 11월 28 10:45:09 2024
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+
+다음에 접속됨: Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+KO16MSWIN949 문자 설정과 AL16UTF16 NCHAR 문자 설정에서 익스포트가 종료되었습니다
+서버는 AL32UTF8 문자 집합을 사용합니다 (문자집합 변환이 가능합니다)
+. 스키마 이전 단계의 객체와 작업을 엑스포트합니다\r
+
+. SCOTT 사용자를 위해 외래 함수 라이브러리 이름을 엑스포트합니다
+. PUBLIC 유형 동의어 익스포트 중
+. 전용 유형 동의어 익스포트 중
+. SCOTT 사용자의 객체 유형 정의를 익스포트합니다.
+SCOTT의 객체를 익스포트하려고 합니다 ...
+. 데이터베이스 링크 익스포트 중
+. 순차 번호 익스포트 중
+. 클러스터 정의 익스포트 중
+. SCOTT의 테이블을 익스포트하려고 합니다 via 규정 경로...
+. .                            DEPT 테이블 익스포트 중          4 행이 엑스포트됨
+. .                             EMP 테이블 익스포트 중         14 행이 엑스포트됨
+. .                           EMP01 테이블 익스포트 중          1 행이 엑스포트됨
+. .                           EMP02 테이블 익스포트 중          0 행이 엑스포트됨
+. .                           EMP04 테이블 익스포트 중          2 행이 엑스포트됨
+. .                           EMP05 테이블 익스포트 중          0 행이 엑스포트됨
+. .                           EMP06 테이블 익스포트 중          1 행이 엑스포트됨
+. .                           EMP07 테이블 익스포트 중          1 행이 엑스포트됨
+. .                           EMP08 테이블 익스포트 중         14 행이 엑스포트됨
+. .                        SALGRADE 테이블 익스포트 중          5 행이 엑스포트됨
+. 동의어 익스포트 중
+. 뷰 익스포트 중
+. 저장 프로시저 익스포트 중
+. 작업을 엑스포트합니다
+. 참조 무결성 제약조건 익스포트 중
+. 트리거 익스포트 중
+. 인덱스유형을 엑스포팅합니다
+. 비트맵, 함수, 기능과 확장 가능한 인덱스들을 엑스포트합니다
+. 이후 테이블 처리 익스포트 중
+. 구체화된 뷰 익스포트 중
+. 스냅샷 로그 익스포트 중
+. 작업 대기열 익스포트 중
+. 새로 고침 그룹과 하위 그룹 익스포트 중
+. 차원을 엑스포트합니다
+. 스키마 이후 단계의 객체와 작업을 엑스포트합니다\r
+
+. 통계를 엑스포트합니다
+익스포트가 경고 없이 정상적으로 종료되었습니다.
+
+C:\ora>imp
+
+Import: Release 11.2.0.1.0 - Production on 목 11월 28 10:45:18 2024
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+사용자 이름: backupuser
+비밀번호:
+
+다음에 접속됨: Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+데이터만 임포트 (yes/no): no > NO
+
+임포트 파일: EXPDAT.DMP > c:\ora\scott_data.dmp
+
+삽입 버퍼 크기를 입력하십시오 (최소치는 8192) 30720> 8192
+
+익스포트 파일은 규정 경로를 거쳐 EXPORT:V11.02.00 에 의해 생성되었습니다
+
+경고: 객체는 다른 사용자 SCOTT(이)가 엑스포트한 것입니다.
+
+KO16MSWIN949 문자집합과 AL16UTF16 NCHAR 문자 집합에 임포트가 완성되었습니다
+AL32UTF8 문자 집합을 사용해서 서버를 임포트합니다 (문자집합 변환이 가능합니다)
+임포트 파일의 내용만 표시합니다 (yes/no): no > no
+
+객체 존재로 인해 발생한 생성 오류는 무시합니다 (yes/no): no > no
+
+권한부여 임포트 (yes/no): yes >
+
+테이블 데이터 임포트 (yes/no): yes > yes
+
+익스포트 파일 전체를 임포트합니다 (yes/no): no > yes
+
+. SCOTT 객체를 BACKUPUSER(으)로 임포트하는 중입니다
+. . 테이블                         "DEPT"(를)을 임포트 중          4 행이 임포트되었습니다
+. . 테이블                          "EMP"(를)을 임포트 중         14 행이 임포트되었습니다
+. . 테이블                        "EMP01"(를)을 임포트 중          1 행이 임포트되었습니다
+. . 테이블                        "EMP02"(를)을 임포트 중          0 행이 임포트되었습니다
+. . 테이블                        "EMP04"(를)을 임포트 중          2 행이 임포트되었습니다
+. . 테이블                        "EMP05"(를)을 임포트 중          0 행이 임포트되었습니다
+. . 테이블                        "EMP06"(를)을 임포트 중          1 행이 임포트되었습니다
+. . 테이블                        "EMP07"(를)을 임포트 중          1 행이 임포트되었습니다
+. . 테이블                        "EMP08"(를)을 임포트 중         14 행이 임포트되었습니다
+. . 테이블                     "SALGRADE"(를)을 임포트 중          5 행이 임포트되었습니다
+IMP-00041: 경고: 컴파일 경고와 함께 객체가 작성되었습니다
+ "CREATE FORCE VIEW "BACKUPUSER"."VIEW_EMP10"                      ("EMPNO",""
+ "ENAME","JOB","DEPTNO") AS "
+ "select empno, ename, job, deptno from emp01 "
+ "where deptno=10"
+IMP-00041: 경고: 컴파일 경고와 함께 객체가 작성되었습니다
+ "CREATE FORCE VIEW "BACKUPUSER"."VIEW_EMP"                      ("사원번호","
+ ""사원명","급여","부서번호") AS "
+ "select empno, ename, sal, deptno from emp01"
+IMP-00041: 경고: 컴파일 경고와 함께 객체가 작성되었습니다
+ "CREATE FORCE VIEW "BACKUPUSER"."VIEW_SAL"                      ("DEPTNO","S"
+ "alSum","SalAvg") AS "
+ "select deptno, sum(sal) as "SalSum", round(avg(sal)) as "SalAvg""
+ "from emp01 group by deptno"
+IMP-00041: 경고: 컴파일 경고와 함께 객체가 작성되었습니다
+ "CREATE FORCE VIEW "BACKUPUSER"."VIEW_EMP_DEPT"                      ("EMPNO"
+ "","ENAME","DEPTNO","DNAME","LOC") AS "
+ "select e.empno, e.ename, e.deptno, d.dname, d.loc from emp01 e inner join d"
+ "ept01 d on e.deptno=d.deptno order by e.empno desc"
+IMP-00041: 경고: 컴파일 경고와 함께 객체가 작성되었습니다
+ "CREATE FORCE VIEW "BACKUPUSER"."VIEW_CHK20"                      ("EMPNO",""
+ "ENAME","JOB","DEPTNO") AS "
+ "select empno, ename, job, deptno from emp01 where deptno=20 with check opti"
+ "on"
+제약 조건을 사용으로 설정에 대한 정보...
+>>>>>>> 4766af81cf516802a5884443200611f5a018ba16
 경고와 함께 임포트가 정상 종료되었습니다.

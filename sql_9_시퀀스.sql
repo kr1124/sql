@@ -1,15 +1,15 @@
 /*
-    ½ÃÄö½º
+    ì‹œí€€ìŠ¤
     
-    ¿À¶óÅ¬¿¡¸¸ ÀÖÀ½.(MySQL¿¡´Â Auto increment)
+    ì˜¤ë¼í´ì—ë§Œ ìˆìŒ.(MySQLì—ëŠ” Auto increment)
   
-    -½ÃÄö½º´Â À¯ÀÏÇÑ °ªÀ» »ı¼ºÇØ ÁÖ´Â ¿À¶óÅ¬ÀÇ °´Ã¼  
-    ½ÃÄö½º¸¦ »ı¼ºÇÏ¸é ±âº»Å°¿Í °°ÀÌ ¼øÂ÷ÀûÀ¸·Î Áõ°¡ÇÏ´Â ÄÃ·³À» ÀÚµ¿ÀûÀ¸·Î »ı¼ºÇÒ ¼ö ÀÖÀ½
+    -ì‹œí€€ìŠ¤ëŠ” ìœ ì¼í•œ ê°’ì„ ìƒì„±í•´ ì£¼ëŠ” ì˜¤ë¼í´ì˜ ê°ì²´  
+    ì‹œí€€ìŠ¤ë¥¼ ìƒì„±í•˜ë©´ ê¸°ë³¸í‚¤ì™€ ê°™ì´ ìˆœì°¨ì ìœ¼ë¡œ ì¦ê°€í•˜ëŠ” ì»¬ëŸ¼ì„ ìë™ì ìœ¼ë¡œ ìƒì„±í•  ìˆ˜ ìˆìŒ
     
     
-    ½ÃÄö½º »ı¼º Çü½Ä
+    ì‹œí€€ìŠ¤ ìƒì„± í˜•ì‹
     
-    create sequence ½ÃÄö½º¸í
+    create sequence ì‹œí€€ìŠ¤ëª…
     start with n
     increment by n
     maxvalue n | no maxvalue
@@ -18,73 +18,73 @@
     cache | no cache
     
     1. start with n
-        ½ÃÄö½ºÀÇ ½ÃÀÛ°ªÀ» ÁöÁ¤ÇÔ
-        nÀ» 1·Î ÁöÁ¤ÇÏ¸é 1ºÎÅÍ ¼øÂ÷ÀûÀ¸·Î ¹øÈ£°¡ Áõ°¡ÇÔ
+        ì‹œí€€ìŠ¤ì˜ ì‹œì‘ê°’ì„ ì§€ì •í•¨
+        nì„ 1ë¡œ ì§€ì •í•˜ë©´ 1ë¶€í„° ìˆœì°¨ì ìœ¼ë¡œ ë²ˆí˜¸ê°€ ì¦ê°€í•¨
         
     2. increment by n
-        ½ÃÄö½ºÀÇ Áõ°¡°ª
-        nÀÌ 2¸é 2¾¿ Áõ°¡ÇÔ (1, 3, 5 ....)
+        ì‹œí€€ìŠ¤ì˜ ì¦ê°€ê°’
+        nì´ 2ë©´ 2ì”© ì¦ê°€í•¨ (1, 3, 5 ....)
     
     3. maxvalue n | no maxvalue
-        ½ÃÄö½º°¡ Áõ°¡ÇÒ ¼ö ÀÖ´Â ÃÖ´ë°ª
-        no maxvalue´Â Á¦ÇÑ ¾øÀ½
+        ì‹œí€€ìŠ¤ê°€ ì¦ê°€í•  ìˆ˜ ìˆëŠ” ìµœëŒ€ê°’
+        no maxvalueëŠ” ì œí•œ ì—†ìŒ
         
     4. minvalue n | no minvalue
-        ½ÃÄö½º ÃÖ¼Ò°ª / noÇÏ¸é Á¦ÇÑ ¾øÀ½
+        ì‹œí€€ìŠ¤ ìµœì†Œê°’ / noí•˜ë©´ ì œí•œ ì—†ìŒ
         
     5. cycle | no cycle
-        ÁöÁ¤µÈ ½ÃÄö½º°ªÀÌ ÃÖ´ëÄ¡¿¡ µµ´ŞÇÏ¸é ´Ù½Ã ÃÖ¼Ò°ªÀ¸·Î µ¹¾Æ°¡µµ·Ï ÁöÁ¤
-        no¸é ÃÖ´ë°ªÀ» ³Ñ¾î¼­¸é ¿À·ù ¹ß»ı - ±âº»°ª
+        ì§€ì •ëœ ì‹œí€€ìŠ¤ê°’ì´ ìµœëŒ€ì¹˜ì— ë„ë‹¬í•˜ë©´ ë‹¤ì‹œ ìµœì†Œê°’ìœ¼ë¡œ ëŒì•„ê°€ë„ë¡ ì§€ì •
+        noë©´ ìµœëŒ€ê°’ì„ ë„˜ì–´ì„œë©´ ì˜¤ë¥˜ ë°œìƒ - ê¸°ë³¸ê°’
         
     6. cache | no cache
-        ¸Ş¸ğ¸®»óÀÇ ½ÃÄö½º °ªÀ» °ü¸®ÇÏµµ·Ï ÇÔ
-        ±âº»°ªÀº 20
-        no cache´Â ¿øÄ¢ÀûÀ¸·Î ¸Ş¸ğ¸®»ó¿¡¼­ ½ÃÄö½º¸¦ °ü¸®ÇÏÁö ¾ÊÀ½
+        ë©”ëª¨ë¦¬ìƒì˜ ì‹œí€€ìŠ¤ ê°’ì„ ê´€ë¦¬í•˜ë„ë¡ í•¨
+        ê¸°ë³¸ê°’ì€ 20
+        no cacheëŠ” ì›ì¹™ì ìœ¼ë¡œ ë©”ëª¨ë¦¬ìƒì—ì„œ ì‹œí€€ìŠ¤ë¥¼ ê´€ë¦¬í•˜ì§€ ì•ŠìŒ
     
 */
 desc user_sequences;
 
--- ½ÃÄö½º »ı¼º
+-- ì‹œí€€ìŠ¤ ìƒì„±
 create sequence emp_seq
 start with 1 
 increment by 1 
 maxvalue 1000000;
 
--- ½ÃÄö½º¸¦ »ç¿ëÇÏ±â À§ÇØ emp Å×ÀÌºí¿¡¼­ ÀÏºÎ ÄÃ·³ÀÇ ±¸Á¶¸¸ º¹»çÇØ Å×ÀÌºí »ı¼º
+-- ì‹œí€€ìŠ¤ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ emp í…Œì´ë¸”ì—ì„œ ì¼ë¶€ ì»¬ëŸ¼ì˜ êµ¬ì¡°ë§Œ ë³µì‚¬í•´ í…Œì´ë¸” ìƒì„±
 create table emp01 
 as 
-select empno, ename, hiredate from emp where 1=0; --³»¿ëÀº »­
+select empno, ename, hiredate from emp where 1=0; --ë‚´ìš©ì€ ëºŒ
 
--- ½ÃÄö½º¸¦ ÅëÇØ »ç¿ø¹øÈ£ ÀÚµ¿ ÇÒ´ç
+-- ì‹œí€€ìŠ¤ë¥¼ í†µí•´ ì‚¬ì›ë²ˆí˜¸ ìë™ í• ë‹¹
 insert into emp01 values(emp_seq.nextval, 'JULIA', SYSDATE);
 select * from emp01;
 
--- emp_seqÀÇ ÇöÀç°ªÀ» ¾Ë°í½ÍÀ» ¶§ : CURRVAL
+-- emp_seqì˜ í˜„ì¬ê°’ì„ ì•Œê³ ì‹¶ì„ ë•Œ : CURRVAL
 select emp_seq.currval from dual;
 
 /*
-    currval - ÇöÀç ½ÃÄö½º °ª
-    nextval - ÇöÀç ½ÃÄö½º °ªÀÇ ´ÙÀ½ °ª
+    currval - í˜„ì¬ ì‹œí€€ìŠ¤ ê°’
+    nextval - í˜„ì¬ ì‹œí€€ìŠ¤ ê°’ì˜ ë‹¤ìŒ ê°’
     
-    currval, nextvalÀ» »ç¿ëÇÒ ¼ö ÀÖ´Â °æ¿ì
-        1. ¼­ºêÄõ¸®°¡ ¾Æ´Ñ select ¹®
-        2. insert¹®ÀÇ select Àı
-        2. insert¹®ÀÇ values Àı
-        4. update¹®ÀÇ set Àı
+    currval, nextvalì„ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ê²½ìš°
+        1. ì„œë¸Œì¿¼ë¦¬ê°€ ì•„ë‹Œ select ë¬¸
+        2. insertë¬¸ì˜ select ì ˆ
+        2. insertë¬¸ì˜ values ì ˆ
+        4. updateë¬¸ì˜ set ì ˆ
         
-    currval, nextvalÀ» »ç¿ëÇÒ ¼ö ¾ø´Â °æ¿ì
-        1. viewÀÇ select Àı
-        2. distinct Å°¿öµå°¡ ÀÖ´Â select Àı
-        3. group by, having, order by ÀıÀÌ ÀÖ´Â select Àı
-        4. select, delete, updateÀÇ ¼­ºêÄõ¸®
-        5. create table, alter table ¸í·É
+    currval, nextvalì„ ì‚¬ìš©í•  ìˆ˜ ì—†ëŠ” ê²½ìš°
+        1. viewì˜ select ì ˆ
+        2. distinct í‚¤ì›Œë“œê°€ ìˆëŠ” select ì ˆ
+        3. group by, having, order by ì ˆì´ ìˆëŠ” select ì ˆ
+        4. select, delete, updateì˜ ì„œë¸Œì¿¼ë¦¬
+        5. create table, alter table ëª…ë ¹
 */
 
 
 /*
-    ½ÃÄö½º ¼öÁ¤ ¹× »èÁ¦
+    ì‹œí€€ìŠ¤ ìˆ˜ì • ë° ì‚­ì œ
 */
-create table dept01 as select * from dept where 1=0; --³»¿ëÀº »­
+create table dept01 as select * from dept where 1=0; --ë‚´ìš©ì€ ëºŒ
 
 create sequence dept_seq 
 start with 10 
@@ -93,30 +93,30 @@ maxvalue 30;
 
 insert into dept01 values(dept_seq.nextval, 'ACCOUNTING', 'NEW YORK');
 insert into dept01 values(dept_seq.nextval, 'RESEARCH', 'DALLAS');
-insert into dept01 values(dept_seq.nextval, 'SALES', 'CHICAGO'); --ÃÖ´ë°ª ÃÊ°ú ¿À·ù
+insert into dept01 values(dept_seq.nextval, 'SALES', 'CHICAGO'); --ìµœëŒ€ê°’ ì´ˆê³¼ ì˜¤ë¥˜
 
 /*
-    nextvalÀº ÇØ´ç ½ÃÄö½ºÀÇ ´ÙÀ½°ªÀ» ÀÚµ¿À¸·Î ÇÒ´çÇÏ¸é¼­ À¯È¿¼ºÀ» °Ë»çÇÔ. currval++
-    currvalÀº ÇöÀç °ªÀ» ¹İÈ¯ÇÏ°í ±× °ªÀ» À¯ÁöÇÑ´Ù.
+    nextvalì€ í•´ë‹¹ ì‹œí€€ìŠ¤ì˜ ë‹¤ìŒê°’ì„ ìë™ìœ¼ë¡œ í• ë‹¹í•˜ë©´ì„œ ìœ íš¨ì„±ì„ ê²€ì‚¬í•¨. currval++
+    currvalì€ í˜„ì¬ ê°’ì„ ë°˜í™˜í•˜ê³  ê·¸ ê°’ì„ ìœ ì§€í•œë‹¤.
     
-    ½ÃÄö½º¿¡ °üÇÑ µ¥ÀÌÅÍ µñ¼Å³Ê¸®(»çÀü) user_sequences
-    - »ı¼ºµÈ ½ÃÄö½ºÀÇ Á¤º¸¸¦ È®ÀÎÇÏ±â À§ÇÑ µ¥ÀÌÅÍ »çÀü
+    ì‹œí€€ìŠ¤ì— ê´€í•œ ë°ì´í„° ë”•ì…”ë„ˆë¦¬(ì‚¬ì „) user_sequences
+    - ìƒì„±ëœ ì‹œí€€ìŠ¤ì˜ ì •ë³´ë¥¼ í™•ì¸í•˜ê¸° ìœ„í•œ ë°ì´í„° ì‚¬ì „
 */
---µ¥ÀÌÅÍ »çÀüÀ¸·Î ½ÃÄö½º Á¤º¸ È®ÀÎ
+--ë°ì´í„° ì‚¬ì „ìœ¼ë¡œ ì‹œí€€ìŠ¤ ì •ë³´ í™•ì¸
 select sequence_name, min_value, max_value, increment_by, cycle_flag from user_sequences;
 select * from user_sequences;
 
 /*
-    ½ÃÄö½º °ªÀ» º¯°æÇÏ·Á¸é ALTER SEQUENCE ¹®À» »ç¿ëÇØ¾ßÇÑ´Ù.
+    ì‹œí€€ìŠ¤ ê°’ì„ ë³€ê²½í•˜ë ¤ë©´ ALTER SEQUENCE ë¬¸ì„ ì‚¬ìš©í•´ì•¼í•œë‹¤.
     
-    alter sequence ½ÃÄö½º¸í
+    alter sequence ì‹œí€€ìŠ¤ëª…
     increment by n
     maxvalue n | no maxvalue
     minvalue n | no minvalue
     cycle | no cycle
     cache | no cache
 */
---dept_seqÀÇ ÃÖ´ë°ª º¯°æ
+--dept_seqì˜ ìµœëŒ€ê°’ ë³€ê²½
 alter sequence dept_seq
 maxvalue 100000;
 
@@ -131,7 +131,7 @@ select * from dept01;
 
 
 /*
-    ½ÃÄö½º »èÁ¦´Â drop
+    ì‹œí€€ìŠ¤ ì‚­ì œëŠ” drop
 */
 drop sequence dept_seq;
 drop table dept01;

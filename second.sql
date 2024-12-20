@@ -1,4 +1,4 @@
 select * from tab;
 purge RECYCLEBIN;
 
-grant create view to scott; --ºä »ı¼º ±ÇÇÑ
+grant create view to scott; --ë·° ìƒì„± ê¶Œí•œ

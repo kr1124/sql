@@ -1,7 +1,7 @@
 /*
-    sys - ¿À¶óÅ¬ ½´ÆÛ »ç¿ëÀÚ¸í, µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ ¸ðµç ÀÏÀ» ÇÒ ¼ö ÀÖÀ½
+    sys - ì˜¤ë¼í´ ìŠˆí¼ ì‚¬ìš©ìžëª…, ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ ëª¨ë“  ì¼ì„ í•  ìˆ˜ ìžˆìŒ
     
-    system - À¯Áö º¸¼ö¿ë °èÁ¤À¸·Î, µ¥ÀÌÅÍº£ÀÌ½º¸¦ »ý¼º, »èÁ¦ÇÒ ¼ö ÀÖ´Â ±ÇÇÑÀº ¾øÀ½.
+    system - ìœ ì§€ ë³´ìˆ˜ìš© ê³„ì •ìœ¼ë¡œ, ë°ì´í„°ë² ì´ìŠ¤ë¥¼ ìƒì„±, ì‚­ì œí•  ìˆ˜ ìžˆëŠ” ê¶Œí•œì€ ì—†ìŒ.
 */
 
 show user;
@@ -12,51 +12,51 @@ select * from dept;
 /*
     number(3)
     number(precision, scale)
-        - precision : ¼Ò¼öÁ¡À» Æ÷ÇÔÇÑ ÀüÃ¼ ÀÚ¸´¼ö
-        - scale : ¼Ò¼öÁ¡ ÀÌÇÏ ÀÚ¸´¼ö
+        - precision : ì†Œìˆ˜ì ì„ í¬í•¨í•œ ì „ì²´ ìžë¦¿ìˆ˜
+        - scale : ì†Œìˆ˜ì  ì´í•˜ ìžë¦¿ìˆ˜
         
     date - yy/mm/dd
     varchar2
-        - °¡º¯ ±æÀÌ ¹®ÀÚ¿­ µ¥ÀÌÅÍ
+        - ê°€ë³€ ê¸¸ì´ ë¬¸ìžì—´ ë°ì´í„°
 */
 
 select * from emp;
 
 select ename, sal, comm, sal +comm, sal - 100, sal * 12, sal/2 from emp;
--- nullÀº ¿¬»ê, ÇÒ´ç, ºñ±³ ¾ÈµÇ´Â ¾Æ¹«Æ° Á¸ÀçÇÏ´Â ¾Ë ¼ö ¾ø´Â °ªÀÌ´Ù.
+-- nullì€ ì—°ì‚°, í• ë‹¹, ë¹„êµ ì•ˆë˜ëŠ” ì•„ë¬´íŠ¼ ì¡´ìž¬í•˜ëŠ” ì•Œ ìˆ˜ ì—†ëŠ” ê°’ì´ë‹¤.
 
---º°Äª, Æ¯¼ö¹®ÀÚ³ª ´ë¼Ò¹®ÀÚ¸¦ ±¸ºÐÇÏ°í ½Í´Ù¸é ""¸¦ »ç¿ëÇÔ
+--ë³„ì¹­, íŠ¹ìˆ˜ë¬¸ìžë‚˜ ëŒ€ì†Œë¬¸ìžë¥¼ êµ¬ë¶„í•˜ê³  ì‹¶ë‹¤ë©´ ""ë¥¼ ì‚¬ìš©í•¨
 select ename, sal * 12 + comm as Annsal, sal as "Sa-la*ry" from emp;
 
 select ename || ' is a ' || job from emp;
 select ename || ' is a ' from emp;
 
---Áßº¹ Á¦°Å
+--ì¤‘ë³µ ì œê±°
 select distinct deptno from emp;
 
 /*  
-    Á¶°Ç ºÎ¿© : where
-    = °°´Ù.
-    <> °°Áö ¾Ê´Ù.
+    ì¡°ê±´ ë¶€ì—¬ : where
+    = ê°™ë‹¤.
+    <> ê°™ì§€ ì•Šë‹¤.
 */
 select * from emp;
 select empno, ename, sal from emp where sal>=2000;
 
 /*
-    ¹®ÀÚ¿­ µ¥ÀÌÅÍ´Â ½Ì±ÛÄõÅÍ·Î »ç¿ë
+    ë¬¸ìžì—´ ë°ì´í„°ëŠ” ì‹±ê¸€ì¿¼í„°ë¡œ ì‚¬ìš©
 */
 select empno, ename from emp where ename='FORD';
 select empno, ename from emp where ename>'FORD';
 
 /*
-    ³¯Â¥ µ¥ÀÌÅÍ Á¶È¸
+    ë‚ ì§œ ë°ì´í„° ì¡°íšŒ
 */
 select ename, hiredate from emp;
 select ename, hiredate from emp where hiredate >= '1982/01/01';
 select ename, hiredate from emp where hiredate <= '1985/01/01';
 
 /*
-    ³í¸® ¿¬»êÀÚ
+    ë…¼ë¦¬ ì—°ì‚°ìž
 */
 select * from emp;
 select ename, deptno, job from emp where deptno=10 and job='MANAGER';
@@ -65,24 +65,24 @@ select * from emp where not deptno=10;
 
 select * from emp where sal>=1000 and sal<=3000;
 --between
-select empno as "»ç¿ø¹øÈ£", ename as "»ç¿øÀÌ¸§", sal as "±Þ¿©" , comm as "Ä¿¹Ì¼Ç" from emp where sal between 1000 and 3000;
+select empno as "ì‚¬ì›ë²ˆí˜¸", ename as "ì‚¬ì›ì´ë¦„", sal as "ê¸‰ì—¬" , comm as "ì»¤ë¯¸ì…˜" from emp where sal between 1000 and 3000;
 
---in : Æ¯Á¤ ÇÊµå°¡ ¿©·¯°³ÀÇ °ªÁß¿¡ ÇÏ³ªÀÎ °æ¿ì¸¦ °Ë»öÇÏ°íÀÚ ÇÒ¶§ »ç¿ë
+--in : íŠ¹ì • í•„ë“œê°€ ì—¬ëŸ¬ê°œì˜ ê°’ì¤‘ì— í•˜ë‚˜ì¸ ê²½ìš°ë¥¼ ê²€ìƒ‰í•˜ê³ ìž í• ë•Œ ì‚¬ìš©
 select ename, sal from emp where empno in(7844, 7654, 7521);
 
 select ename, sal, comm from emp where comm in(300, 500, 1400);
 
---nullÀ» À§ÇÑ ¿¬»êÀÚ - is null, is not null
-select ename, sal, comm from emp where comm=null; --ÀÏ¹Ý ºñ±³¿¬»êÀÚ °°Àº°Ç ¾ÈµÊ
+--nullì„ ìœ„í•œ ì—°ì‚°ìž - is null, is not null
+select ename, sal, comm from emp where comm=null; --ì¼ë°˜ ë¹„êµì—°ì‚°ìž ê°™ì€ê±´ ì•ˆë¨
 select ename, sal, comm from emp where comm is null; 
 select ename, sal, comm from emp where comm is not null;
 
 
 
 /*
-    order by : Á¤·Ä
-    Äõ¸®¹® ¸Ç µÚ¿¡ ±â¼ú.
-    Á¤·ÄÀÇ ±âÁØÀÌ µÇ´Â ÄÃ·³ ÀÌ¸§ ¶Ç´Â select Àý¿¡¼­ ¸í½ÃµÈ º°ÄªÀ» »ç¿ëÇØ¾ßÇÔ
+    order by : ì •ë ¬
+    ì¿¼ë¦¬ë¬¸ ë§¨ ë’¤ì— ê¸°ìˆ .
+    ì •ë ¬ì˜ ê¸°ì¤€ì´ ë˜ëŠ” ì»¬ëŸ¼ ì´ë¦„ ë˜ëŠ” select ì ˆì—ì„œ ëª…ì‹œëœ ë³„ì¹­ì„ ì‚¬ìš©í•´ì•¼í•¨
     
 */
 select * from emp;
@@ -91,19 +91,18 @@ select * from emp order by hiredate desc;
 
 
 /*
-    like ¿¬»êÀÚ
-    - °Ë»öÇÏ°íÀÚ ÇÏ´Â °ªÀ» Á¤È®È÷ ¸ð¸¦ °æ¿ì ¿ÍÀÏµå Ä«µå¿Í °°ÀÌ »ç¿ëÇÏ¿©
-    ¿øÇÏ´Â ³»¿ëÀ» °Ë»ö
+    like ì—°ì‚°ìž
+    - ê²€ìƒ‰í•˜ê³ ìž í•˜ëŠ” ê°’ì„ ì •í™•ížˆ ëª¨ë¥¼ ê²½ìš° ì™€ì¼ë“œ ì¹´ë“œì™€ ê°™ì´ ì‚¬ìš©í•˜ì—¬
+    ì›í•˜ëŠ” ë‚´ìš©ì„ ê²€ìƒ‰
     
-    ¿ÍÀÏµå Ä«µå : 
-        % : ¹®ÀÚ°¡ ¾ø°Å³ª, ÇÏ³ª ÀÌ»óÀÇ ¹®ÀÚ°¡ ¾î¶² °ªÀÌ ¿Àµç »ó°ü¾ø´Ù.
-        _ : ÇÏ³ªÀÇ ¹®ÀÚ°¡ ¾î¶² °ªÀÌ ¿Àµç »ó°ü ¾ø´Ù.    
+    ì™€ì¼ë“œ ì¹´ë“œ : 
+        % : ë¬¸ìžê°€ ì—†ê±°ë‚˜, í•˜ë‚˜ ì´ìƒì˜ ë¬¸ìžê°€ ì–´ë–¤ ê°’ì´ ì˜¤ë“  ìƒê´€ì—†ë‹¤.
+        _ : í•˜ë‚˜ì˜ ë¬¸ìžê°€ ì–´ë–¤ ê°’ì´ ì˜¤ë“  ìƒê´€ ì—†ë‹¤.    
 */
 select * from emp;
 select empno, ename from emp where ename like 'A%';
-select empno, ename from emp where ename like '%K%'; --K°¡ Æ÷ÇÔµÊ
+select empno, ename from emp where ename like '%K%'; --Kê°€ í¬í•¨ë¨
 select empno, ename from emp where ename like '_LA__';
-select empno, ename from emp where ename like '_A%'; --µÎ¹øÂ°°¡ A
+select empno, ename from emp where ename like '_A%'; --ë‘ë²ˆì§¸ê°€ A
 
 select empno, ename from emp where not ename like '%A%';
-

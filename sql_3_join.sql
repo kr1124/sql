@@ -1,24 +1,24 @@
 /*
 join
- - ÇÑ °³ ÀÌ»óÀÇ Å×ÀÌºí¿¡¼­ ¿øÇÏ´Â °á°ú¸¦ ¾ò°íÀÚ ÇÒ ¶§ »ç¿ëÇÑ´Ù.
+ - í•œ ê°œ ì´ìƒì˜ í…Œì´ë¸”ì—ì„œ ì›í•˜ëŠ” ê²°ê³¼ë¥¼ ì–»ê³ ì í•  ë•Œ ì‚¬ìš©í•œë‹¤.
  
- 1. Equi Join    : µ¿ÀÏ ÄÃ·³À» ±âÁØÀ¸·Î Á¶ÀÎÇÑ´Ù.
- 2. NonEqui Join : µ¿ÀÏ ÄÃ·³ ¾øÀÌ ´Ù¸¥ Á¶°ÇÀ» »ç¿ëÇÏ¿© Á¶ÀÎÇÔ.
- 3. Outer Join   : Á¶ÀÎ Á¶°Ç¿¡ ¸¸Á·ÇÏÁö ¾Ê´Â Çàµµ Ãâ·ÂÇÔ.
- 4. Self Join    : ÇÑ Å×ÀÌºí ³»¿¡¼­ Á¶ÀÎÇÔ.
+ 1. Equi Join    : ë™ì¼ ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ì¡°ì¸í•œë‹¤.
+ 2. NonEqui Join : ë™ì¼ ì»¬ëŸ¼ ì—†ì´ ë‹¤ë¥¸ ì¡°ê±´ì„ ì‚¬ìš©í•˜ì—¬ ì¡°ì¸í•¨.
+ 3. Outer Join   : ì¡°ì¸ ì¡°ê±´ì— ë§Œì¡±í•˜ì§€ ì•ŠëŠ” í–‰ë„ ì¶œë ¥í•¨.
+ 4. Self Join    : í•œ í…Œì´ë¸” ë‚´ì—ì„œ ì¡°ì¸í•¨.
 
-±âº»ÀûÀÎ ±ÔÄ¢
- 1. Primary Key(±âº»Å°)¿Í Foreign Key(¿Ü·¡Å°)¸¦ ÅëÇÑ ´Ù¸¥ Å×ÀÌºí Çà°ú ¿¬°áÇÔ
- 2. ¿¬°á Key »ç¿ëÀ¸·Î Å×ÀÌºí°ú Å×ÀÌºíÀÌ °áÇÕÇÔ.
- 3. where Àı¿¡¼­ Á¶ÀÎ Á¶°ÇÀ» »ç¿ëÇÔ
- 4. ¸íÈ®¼ºÀ» À§ÇØ ÄÃ·³ ÀÌ¸§ ¾Õ¿¡ Å×ÀÌºí¸í, ¶Ç´Â Å×ÀÌºí º°ÄªÀ» ºÙÀÓ
+ê¸°ë³¸ì ì¸ ê·œì¹™
+ 1. Primary Key(ê¸°ë³¸í‚¤)ì™€ Foreign Key(ì™¸ë˜í‚¤)ë¥¼ í†µí•œ ë‹¤ë¥¸ í…Œì´ë¸” í–‰ê³¼ ì—°ê²°í•¨
+ 2. ì—°ê²° Key ì‚¬ìš©ìœ¼ë¡œ í…Œì´ë¸”ê³¼ í…Œì´ë¸”ì´ ê²°í•©í•¨.
+ 3. where ì ˆì—ì„œ ì¡°ì¸ ì¡°ê±´ì„ ì‚¬ìš©í•¨
+ 4. ëª…í™•ì„±ì„ ìœ„í•´ ì»¬ëŸ¼ ì´ë¦„ ì•ì— í…Œì´ë¸”ëª…, ë˜ëŠ” í…Œì´ë¸” ë³„ì¹­ì„ ë¶™ì„
 */
 
 /*
 --equi join
-    - Á¶ÀÎ ´ë»óÀÌ µÇ´Â µÎ Å×ÀÌºí¿¡¼­ 
-    °øÅëÀûÀ¸·Î Á¸ÀçÇÏ´Â ÄÃ·³ÀÇ °ªÀÌ ÀÏÄ¡µÇ´Â ÇàÀ» ¿¬°áÇÏ¿©
-    °á°ú¸¦ ¸¸µé¾î³»´Â Á¶ÀÎ
+    - ì¡°ì¸ ëŒ€ìƒì´ ë˜ëŠ” ë‘ í…Œì´ë¸”ì—ì„œ 
+    ê³µí†µì ìœ¼ë¡œ ì¡´ì¬í•˜ëŠ” ì»¬ëŸ¼ì˜ ê°’ì´ ì¼ì¹˜ë˜ëŠ” í–‰ì„ ì—°ê²°í•˜ì—¬
+    ê²°ê³¼ë¥¼ ë§Œë“¤ì–´ë‚´ëŠ” ì¡°ì¸
 */
 select deptno from emp;
 select deptno from dept;
@@ -27,11 +27,10 @@ select * from dept;
 
 select * from emp, dept where emp.deptno=dept.deptno;
 select e.empno, e.ename, e.deptno, d.deptno from emp e, dept d where e.deptno=d.deptno;
-select e.empno, e.ename, d,dname, e.dpetno, ;
 
 /*
 --non equi join
-    - Á¶ÀÎ ´ë»óÀÌ µÇ´Â µÎ Å×ÀÌºí¿¡¼­ ÄÃ·³ÀÇ °ªÀ» ¹üÀ§·Î ¼³Á¤ÇÏ¿© °á°ú¸¦ ¸¸µê
+    - ì¡°ì¸ ëŒ€ìƒì´ ë˜ëŠ” ë‘ í…Œì´ë¸”ì—ì„œ ì»¬ëŸ¼ì˜ ê°’ì„ ë²”ìœ„ë¡œ ì„¤ì •í•˜ì—¬ ê²°ê³¼ë¥¼ ë§Œë“¦
 */
 select * from salgrade;
 select e.ename, e.sal, s.grade from emp e, salgrade s where e.sal between s.losal and s.hisal;
@@ -39,56 +38,56 @@ select e.ename, e.sal, s.grade from emp e, salgrade s where e.sal >= s.losal and
 
 /*
 outer join
-    -ÇàÀÌ Á¶ÀÎ Á¶°ÇÀ» ¸¸Á·ÇÏÁö ¾ÊÀ» °æ¿ì ±× ÇàÀº °á°ú¿¡ ³ªÅ¸³ªÁö ¾Ê°Ô µÇ´Âµ¥
-    Á¶ÀÎ Á¶°Ç¿¡ ¸¸Á·ÇÏÁö ¾Ê¾Æµµ Ãâ·ÂÇÏ´Â Á¶ÀÎ
+    -í–‰ì´ ì¡°ì¸ ì¡°ê±´ì„ ë§Œì¡±í•˜ì§€ ì•Šì„ ê²½ìš° ê·¸ í–‰ì€ ê²°ê³¼ì— ë‚˜íƒ€ë‚˜ì§€ ì•Šê²Œ ë˜ëŠ”ë°
+    ì¡°ì¸ ì¡°ê±´ì— ë§Œì¡±í•˜ì§€ ì•Šì•„ë„ ì¶œë ¥í•˜ëŠ” ì¡°ì¸
 */
 select deptno from dept;
 select distinct(deptno) from emp;
 
-select e.ename, d.deptno, d.dname from emp e, dept d where e.deptno(+) = d.deptno order by deptno; --oracle½Ä Á¶ÀÎ
-select e.ename, d.deptno, d.dname from emp e right outer join dept d on e.deptno = d.deptno; -- À§¿Í °°À½
-select e.ename, e.deptno as Eno, d.deptno as Dno, d.dname from emp e, dept d; --ÀÏ´Ü Ä«¸£Æ¼½Ã¾È °öÀ» ÇØ µÎ Å×ÀÌºíÀ» ÇÕÄ¡°í, ±× Å×ÀÌºíÀÇ ÄÃ·³À» »Ì¾Æ³¿.
+select e.ename, d.deptno, d.dname from emp e, dept d where e.deptno(+) = d.deptno order by deptno; --oracleì‹ ì¡°ì¸
+select e.ename, d.deptno, d.dname from emp e right outer join dept d on e.deptno = d.deptno; -- ìœ„ì™€ ê°™ìŒ
+select e.ename, e.deptno as Eno, d.deptno as Dno, d.dname from emp e, dept d; --ì¼ë‹¨ ì¹´ë¥´í‹°ì‹œì•ˆ ê³±ì„ í•´ ë‘ í…Œì´ë¸”ì„ í•©ì¹˜ê³ , ê·¸ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì„ ë½‘ì•„ëƒ„.
 
 /*
 self join
-    -ÀÚ±â ÀÚ½Å°ú Á¶ÀÎ
-    from Àı ´ÙÀ½¿¡ µ¿ÀÏÇÑ Å×ÀÌºí¸íÀ» 2¹ø ±â¼úÇÏ°í where Àı¿¡ Á¶ÀÎ Á¶°ÇÀ» °É¾îÁÖ¾î¾ß ÇÔ
-    ÀÌ´ë ¼­·Î ´Ù¸¥ Å×ÀÌºíÀÎ °ÍÃ³·³ ÀÎ½Ä µÇµµ·Ï ´Ù¸¥ º°ÄªÀ» »ç¿ëÇÔ.
+    -ìê¸° ìì‹ ê³¼ ì¡°ì¸
+    from ì ˆ ë‹¤ìŒì— ë™ì¼í•œ í…Œì´ë¸”ëª…ì„ 2ë²ˆ ê¸°ìˆ í•˜ê³  where ì ˆì— ì¡°ì¸ ì¡°ê±´ì„ ê±¸ì–´ì£¼ì–´ì•¼ í•¨
+    ì´ëŒ€ ì„œë¡œ ë‹¤ë¥¸ í…Œì´ë¸”ì¸ ê²ƒì²˜ëŸ¼ ì¸ì‹ ë˜ë„ë¡ ë‹¤ë¥¸ ë³„ì¹­ì„ ì‚¬ìš©í•¨.
 */
 select work.ename, mana.mgr from emp work, emp mana;
 select work.ename, manager.ename from emp work, emp manager where work.mgr = manager.empno;
-select work.ename || 'ÀÇ ¸Å´ÏÀú´Â ', manager.ename || 'ÀÌ´Ù.' from emp work, emp manager where work.mgr = manager.empno;
+select work.ename || 'ì˜ ë§¤ë‹ˆì €ëŠ” ', manager.ename || 'ì´ë‹¤.' from emp work, emp manager where work.mgr = manager.empno;
 select * from emp;
 
 
 
 /*
 ANSI join
-    »ó¿ë µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Ç¥ÁØ ¾ğ¾î
-    ´Ù¸¥ DBMS¿ÍÀÇ È£È¯¼ºÀ» À§ÇØ¼­´Â ANSI joinÀ» »ç¿ëÇÏ´Â °ÍÀÌ ÁÁ´Ù.
+    ìƒìš© ë°ì´í„°ë² ì´ìŠ¤ì˜ í‘œì¤€ ì–¸ì–´
+    ë‹¤ë¥¸ DBMSì™€ì˜ í˜¸í™˜ì„±ì„ ìœ„í•´ì„œëŠ” ANSI joinì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì¢‹ë‹¤.
 
-1. Cross join(Ä«¸£Æ¼½Ã¾È °ö)
-    ÀÌÀü¿¡´Â ½°Ç¥(,)·Î Å×ÀÌºíÀ» ±¸ºĞÇÏ¿´À¸³ª ±× ´ë½Å cross joinÀ¸·Î ÁöÁ¤ÇÏ¸é µÈ´Ù.
+1. Cross join(ì¹´ë¥´í‹°ì‹œì•ˆ ê³±)
+    ì´ì „ì—ëŠ” ì‰¼í‘œ(,)ë¡œ í…Œì´ë¸”ì„ êµ¬ë¶„í•˜ì˜€ìœ¼ë‚˜ ê·¸ ëŒ€ì‹  cross joinìœ¼ë¡œ ì§€ì •í•˜ë©´ ëœë‹¤.
 */
-select * from emp e cross join dept d; --on ¸ø ¾¸
+select * from emp e cross join dept d; --on ëª» ì”€
 
 /*
 2. Inner Join
-    °øÅë ÄÃ·³À» '=' ºñ±³ ¿¬»êÀÚ¸¦ ÅëÇØ¼­ °°Àº °ªÀ» °¡Áö´Â ÇàÀ» ¿¬°áÇÏ´Â ¹æ¹ı
+    ê³µí†µ ì»¬ëŸ¼ì„ '=' ë¹„êµ ì—°ì‚°ìë¥¼ í†µí•´ì„œ ê°™ì€ ê°’ì„ ê°€ì§€ëŠ” í–‰ì„ ì—°ê²°í•˜ëŠ” ë°©ë²•
 */
-select * from emp e inner join dept d on e.deptno=d.deptno; --onÀº ÄÃ·³¸íÀÌ ´Ş¶óµµ µÊ.
-select * from emp e inner join dept d using(deptno); --usingÀº ÄÃ·³¸íÀÌ °°¾Æ¾ß ÇÔ.
+select * from emp e inner join dept d on e.deptno=d.deptno; --onì€ ì»¬ëŸ¼ëª…ì´ ë‹¬ë¼ë„ ë¨.
+select * from emp e inner join dept d using(deptno); --usingì€ ì»¬ëŸ¼ëª…ì´ ê°™ì•„ì•¼ í•¨.
 
 /*
 3. Natural Join
-    Á¶°Ç ÀıÀ» »ı·«ÇÏ°í natural joinÀ» »ç¿ëÇÏ¸é ÀÚµ¿ÀûÀ¸·Î ¸ğµç ÄÃ·³À» ´ë»óÀ¸·Î
-    °øÅëÄÃ·³À» Á¶»çÇÏ¿© ³»ºÎÀûÀ¸·Î Á¶ÀÎ¹®À» »ı¼ºÇÑ´Ù.
+    ì¡°ê±´ ì ˆì„ ìƒëµí•˜ê³  natural joinì„ ì‚¬ìš©í•˜ë©´ ìë™ì ìœ¼ë¡œ ëª¨ë“  ì»¬ëŸ¼ì„ ëŒ€ìƒìœ¼ë¡œ
+    ê³µí†µì»¬ëŸ¼ì„ ì¡°ì‚¬í•˜ì—¬ ë‚´ë¶€ì ìœ¼ë¡œ ì¡°ì¸ë¬¸ì„ ìƒì„±í•œë‹¤.
 */
 select * from emp e natural join dept d;
 
 /*
 4. Outer Join
-    left(right) outer join : ¿ŞÂÊ(¶Ç´Â ¿À¸¥ÂÊ)ÀÇ Å×ÀÌºíÀÇ °ªÀÌ ´©¶ôµÇÁö ¾Êµµ·Ï ÇÔ.
+    left(right) outer join : ì™¼ìª½(ë˜ëŠ” ì˜¤ë¥¸ìª½)ì˜ í…Œì´ë¸”ì˜ ê°’ì´ ëˆ„ë½ë˜ì§€ ì•Šë„ë¡ í•¨.
 */
 select e.ename, d.deptno, d.dname from emp e right outer join dept d on d.deptno=e.deptno;
 

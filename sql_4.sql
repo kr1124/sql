@@ -29,9 +29,9 @@ select e1.ename, e1.deptno, e2.ename from emp e1, emp e2 where e1.deptno=e2.dept
 
 
 /*
-    ¼­ºê Äõ¸®
+    ì„œë¸Œ ì¿¼ë¦¬
     
-    - ÇÏ³ªÀÇ select ¹®ÀåÀÇ ¾È¿¡ ¶Ç ÇÏ³ªÀÇ Æ÷ÇÔµÈ select ¹®ÀåÀÌ´Ù.
+    - í•˜ë‚˜ì˜ select ë¬¸ìž¥ì˜ ì•ˆì— ë˜ í•˜ë‚˜ì˜ í¬í•¨ëœ select ë¬¸ìž¥ì´ë‹¤.
     
 */
 select deptno from emp where ename='SCOTT';
@@ -40,8 +40,8 @@ select dname from dept where deptno=20;
 select dname from dept where deptno=(select deptno from emp where ename='SCOTT');
 
 /*
-    ´ÜÀÏ Çà ¼­ºêÄõ¸®
-    - ÇÏ³ªÀÇ ÇØ¸¸ °Ë»öÇÏ¿© ±× °á°ú¸¦ ¸ÞÀÎÄõ¸®¿¡ º¸³¿
+    ë‹¨ì¼ í–‰ ì„œë¸Œì¿¼ë¦¬
+    - í•˜ë‚˜ì˜ í•´ë§Œ ê²€ìƒ‰í•˜ì—¬ ê·¸ ê²°ê³¼ë¥¼ ë©”ì¸ì¿¼ë¦¬ì— ë³´ëƒ„
 */
 select deptno from emp where ename='JONES';
 select dname from dept where deptno=(select deptno from emp where ename='JONES');
@@ -54,31 +54,31 @@ select ename, sal from emp where sal > (select round(avg(sal)) from emp);
 
 
 /*
-    ´ÙÁß Çà ¼­ºêÄõ¸®
-    - ¼­ºêÄõ¸®¿¡¼­ ¹ÝÈ¯µÇ´Â °á°ú°¡ ÇÏ³ª ÀÌ»óÀÏ ¶§ »ç¿ëÇÏ´Â ¼­ºêÄõ¸®
-    - ´ÙÁß Çà ¼­ºêÄõ¸®´Â ¹Ýµå½Ã ´ÙÁß Çà ¿¬»êÀÚ¿Í ÇÔ²² »ç¿ë
+    ë‹¤ì¤‘ í–‰ ì„œë¸Œì¿¼ë¦¬
+    - ì„œë¸Œì¿¼ë¦¬ì—ì„œ ë°˜í™˜ë˜ëŠ” ê²°ê³¼ê°€ í•˜ë‚˜ ì´ìƒì¼ ë•Œ ì‚¬ìš©í•˜ëŠ” ì„œë¸Œì¿¼ë¦¬
+    - ë‹¤ì¤‘ í–‰ ì„œë¸Œì¿¼ë¦¬ëŠ” ë°˜ë“œì‹œ ë‹¤ì¤‘ í–‰ ì—°ì‚°ìžì™€ í•¨ê»˜ ì‚¬ìš©
     
-    ´ÙÁß Çà ¿¬»êÀÚ
+    ë‹¤ì¤‘ í–‰ ì—°ì‚°ìž
     
-    IN          : ¸ÞÀÎ Äõ¸®ÀÇ ºñ±³ Á¶°ÇÀÌ ¼­ºê Äõ¸®ÀÇ °Ë»ö °á°ú¿Í ÇÏ³ª¶óµµ ÀÏÄ¡ÇÏ¸é Âü
-    ANY, SOME   : ¸ÞÀÎ Äõ¸®ÀÇ ºñ±³ Á¶°ÇÀÌ ¼­ºê Äõ¸®ÀÇ °Ë»ö °á°ú¿Í ÇÏ³ªÀÌ»óÀÌ ÀÏÄ¡ÇÏ¸é Âü
-    ALL         : ¸ÞÀÎ Äõ¸®ÀÇ ºñ±³ Á¶°ÇÀÌ ¼­ºê Äõ¸®ÀÇ °Ë»ö °á°ú¿Í ¸ðµç °ªÀÌ ÀÏÄ¡ÇÏ¸é Âü
-    EXIST       : ¸ÞÀÎ Äõ¸®ÀÇ ºñ±³ Á¶°ÇÀÌ ¼­ºê Äõ¸®ÀÇ °Ë»ö °á°ú Áß¿¡¼­ ¸¸Á·ÇÏ´Â °ªÀÌ ÇÏ³ª¶óµµ Á¸ÀçÇÏ¸é Âü
+    IN          : ë©”ì¸ ì¿¼ë¦¬ì˜ ë¹„êµ ì¡°ê±´ì´ ì„œë¸Œ ì¿¼ë¦¬ì˜ ê²€ìƒ‰ ê²°ê³¼ì™€ í•˜ë‚˜ë¼ë„ ì¼ì¹˜í•˜ë©´ ì°¸
+    ANY, SOME   : ë©”ì¸ ì¿¼ë¦¬ì˜ ë¹„êµ ì¡°ê±´ì´ ì„œë¸Œ ì¿¼ë¦¬ì˜ ê²€ìƒ‰ ê²°ê³¼ì™€ í•˜ë‚˜ì´ìƒì´ ì¼ì¹˜í•˜ë©´ ì°¸
+    ALL         : ë©”ì¸ ì¿¼ë¦¬ì˜ ë¹„êµ ì¡°ê±´ì´ ì„œë¸Œ ì¿¼ë¦¬ì˜ ê²€ìƒ‰ ê²°ê³¼ì™€ ëª¨ë“  ê°’ì´ ì¼ì¹˜í•˜ë©´ ì°¸
+    EXIST       : ë©”ì¸ ì¿¼ë¦¬ì˜ ë¹„êµ ì¡°ê±´ì´ ì„œë¸Œ ì¿¼ë¦¬ì˜ ê²€ìƒ‰ ê²°ê³¼ ì¤‘ì—ì„œ ë§Œì¡±í•˜ëŠ” ê°’ì´ í•˜ë‚˜ë¼ë„ ì¡´ìž¬í•˜ë©´ ì°¸
 */
 
--- in ¿¬»êÀÚ : °á°ú°¡ 2°³ ÀÌ»ó ±¸ÇØÁö´Â Äõ¸®¹®À» ¼­ºêÄõ¸®·Î ±â¼úÇÒ°æ¿ì ´ÙÁß Çà ¿¬»êÀÚ¿Í ÇÔ²² »ç¿ëÇØ¾ßÇÔ
+-- in ì—°ì‚°ìž : ê²°ê³¼ê°€ 2ê°œ ì´ìƒ êµ¬í•´ì§€ëŠ” ì¿¼ë¦¬ë¬¸ì„ ì„œë¸Œì¿¼ë¦¬ë¡œ ê¸°ìˆ í• ê²½ìš° ë‹¤ì¤‘ í–‰ ì—°ì‚°ìžì™€ í•¨ê»˜ ì‚¬ìš©í•´ì•¼í•¨
 select distinct deptno from emp where sal>=3000;
 select ename, sal, deptno from emp where deptno in (select distinct deptno from emp where sal>=3000);
 
 select ename, hiredate from emp where deptno in (select deptno from emp where ename='BLAKE');
 
 
--- ALL ¿¬»êÀÚ
+-- ALL ì—°ì‚°ìž
 select max(sal) from emp where deptno=30;
 select ename, sal from emp where sal > all (select max(sal) from emp where deptno=30);
 
 
--- ANY ¿¬»êÀÚ : ¸ÞÀÎ Äõ¸®ÀÇ ºñ±³ Á¶°ÇÀÌ ¼­ºê Äõ¸®ÀÇ °Ë»ö °á°ú¿Í ÇÏ³ªÀÌ»óÀÌ ÀÏÄ¡ÇÏ¸é Âü
+-- ANY ì—°ì‚°ìž : ë©”ì¸ ì¿¼ë¦¬ì˜ ë¹„êµ ì¡°ê±´ì´ ì„œë¸Œ ì¿¼ë¦¬ì˜ ê²€ìƒ‰ ê²°ê³¼ì™€ í•˜ë‚˜ì´ìƒì´ ì¼ì¹˜í•˜ë©´ ì°¸
 select ename, sal from emp where sal > any (select min(sal) from emp where deptno=30);
 
 
@@ -101,57 +101,57 @@ select empno, ename, sal, deptno from emp where emp.deptno in (select deptno fro
 
 
 /*
-ÀÚ·áÇü
+ìžë£Œí˜•
 char
-- °íÁ¤±æÀÌ ¹®ÀÚ µ¥ÀÌÅÍ
+- ê³ ì •ê¸¸ì´ ë¬¸ìž ë°ì´í„°
 
 varchar
-- °¡º¯±æÀÌ ¹®ÀÚ µ¥ÀÌÅÍ
+- ê°€ë³€ê¸¸ì´ ë¬¸ìž ë°ì´í„°
 
 
 number
--ÃÖ´ë 40ÀÚ¸®±îÁöÀÇ ¼ýÀÚ ÀúÀå
--ºÎÈ£´Â ÀÚ¸® Â÷Áö¾ÊÇÔ.
+-ìµœëŒ€ 40ìžë¦¬ê¹Œì§€ì˜ ìˆ«ìž ì €ìž¥
+-ë¶€í˜¸ëŠ” ìžë¦¬ ì°¨ì§€ì•Ší•¨.
 
 number(p)
--p ÀÚ¸®¼ö±îÁö ÀÇ ÃÖ´ë ¼öÄ¡·Î ÃÖ´ë 38ÀÚ¸®±îÁö
+-p ìžë¦¬ìˆ˜ê¹Œì§€ ì˜ ìµœëŒ€ ìˆ˜ì¹˜ë¡œ ìµœëŒ€ 38ìžë¦¬ê¹Œì§€
 
 number(p,s)]
--p´Â ÀüÃ¼ ÀÚ¸®¼ö, s´Â ¼Ò¼öÁ¡ ÀÌÇÏ ÀÚ¸®¼ö
+-pëŠ” ì „ì²´ ìžë¦¬ìˆ˜, sëŠ” ì†Œìˆ˜ì  ì´í•˜ ìžë¦¬ìˆ˜
 
 date
--³¯Â¥ Çü½Ä ÀúÀå
+-ë‚ ì§œ í˜•ì‹ ì €ìž¥
 
 rowid
-- Å×ÀÌºí ³» ÇàÀÇ °íÀ¯ ÁÖ¼Ò¸¦ °¡Áö´Â ¹®ÀÚ
+- í…Œì´ë¸” ë‚´ í–‰ì˜ ê³ ìœ  ì£¼ì†Œë¥¼ ê°€ì§€ëŠ” ë¬¸ìž
 
 BLOB
-- ´ë¿ë·® ¹ÙÀÌ³Ê¸® µ¥ÀÌÅÍ¸¦ ÀúÀå, ÃÖ´ë 4GB±îÁö
+- ëŒ€ìš©ëŸ‰ ë°”ì´ë„ˆë¦¬ ë°ì´í„°ë¥¼ ì €ìž¥, ìµœëŒ€ 4GBê¹Œì§€
 
 CLOB
-- ´ë¿ë·® ÅØ½ºÆ® µ¥ÀÌÅÍ ÀúÀå, ÃÖ´ë 4GB±îÁö
+- ëŒ€ìš©ëŸ‰ í…ìŠ¤íŠ¸ ë°ì´í„° ì €ìž¥, ìµœëŒ€ 4GBê¹Œì§€
 
 BFILE
-- ´ë¿ë·® ¹ÙÀÌ³Ê¸® µ¥ÀÌÅÍ¸¦ ÆÄÀÏÇüÅÂ·Î ÀúÀå, ÃÖ´ë 4GB
+- ëŒ€ìš©ëŸ‰ ë°”ì´ë„ˆë¦¬ ë°ì´í„°ë¥¼ íŒŒì¼í˜•íƒœë¡œ ì €ìž¥, ìµœëŒ€ 4GB
 
 TIMESTAMP
-- DATE ÇüÀÇ È®ÀåµÈ ÇüÅÂ, ¹é¸¸ºÐÀÇ ÀÏÃÊ ´ÜÀ§·Î Ç¥Çö°¡´É.
+- DATE í˜•ì˜ í™•ìž¥ëœ í˜•íƒœ, ë°±ë§Œë¶„ì˜ ì¼ì´ˆ ë‹¨ìœ„ë¡œ í‘œí˜„ê°€ëŠ¥.
 
 INTERVAL YEAR TO MONTH
-- ³â°ú ¿øÀ» ÀÌ¿ëÇÏ¿© ±â°£À» ÀúÀå
+- ë…„ê³¼ ì›ì„ ì´ìš©í•˜ì—¬ ê¸°ê°„ì„ ì €ìž¥
 
 INTERVAL DAY TO SECOND
-- ÀÏ, ½Ã, ÃÊ¸¦ ÀÌ¿ëÇÏ¿© ±â°£À» ÀúÀå
+- ì¼, ì‹œ, ì´ˆë¥¼ ì´ìš©í•˜ì—¬ ê¸°ê°„ì„ ì €ìž¥
 
 */
 
 /*
-    Å×ÀÌºí¸í°ú ÄÃ·³¸íÀ» ºÎ¿©ÇÏ±â À§ÇÑ ±ÔÄ¢
-    1. ¹Ýµå½Ã ¹®ÀÚ·Î ½ÃÀÛ
-    2. ±æÀÌ´Â 1 ~ 30ÀÚ ±îÁö
-    3. A ~ Z±îÁöÀÇ ´ë¼Ò¹®ÀÚ, 0 ~ 9±îÁöÀÇ ¼ýÀÚ, Æ¯¼ö±âÈ£´Â(_, $, #)¸¸ °¡´É
-    4. ¿À¶óÅ¬¿¡¼­ »ç¿ëµÇ´Â ¿¹¾à¾î³ª ´Ù¸¥ °´Ã¼¸í°ú Áßº¹ ºÒ°¡
-    5. °ø¹é Çã¿ë ¾ÈÇÔ.
+    í…Œì´ë¸”ëª…ê³¼ ì»¬ëŸ¼ëª…ì„ ë¶€ì—¬í•˜ê¸° ìœ„í•œ ê·œì¹™
+    1. ë°˜ë“œì‹œ ë¬¸ìžë¡œ ì‹œìž‘
+    2. ê¸¸ì´ëŠ” 1 ~ 30ìž ê¹Œì§€
+    3. A ~ Zê¹Œì§€ì˜ ëŒ€ì†Œë¬¸ìž, 0 ~ 9ê¹Œì§€ì˜ ìˆ«ìž, íŠ¹ìˆ˜ê¸°í˜¸ëŠ”(_, $, #)ë§Œ ê°€ëŠ¥
+    4. ì˜¤ë¼í´ì—ì„œ ì‚¬ìš©ë˜ëŠ” ì˜ˆì•½ì–´ë‚˜ ë‹¤ë¥¸ ê°ì²´ëª…ê³¼ ì¤‘ë³µ ë¶ˆê°€
+    5. ê³µë°± í—ˆìš© ì•ˆí•¨.
 */
 select * from tab;
 
@@ -162,55 +162,55 @@ sal number(7, 2)
 );
 
 select * from emp01;
-desc emp01;--±¸Á¶ È®ÀÎ
+desc emp01;--êµ¬ì¡° í™•ì¸
 
-create table emp02 as select * from emp; --¼­ºêÄõ¸® ÀÌ¿ëÇÑ Å×ÀÌºí º¹»ç »ý¼º
+create table emp02 as select * from emp; --ì„œë¸Œì¿¼ë¦¬ ì´ìš©í•œ í…Œì´ë¸” ë³µì‚¬ ìƒì„±
 desc emp02;
 select * from emp02;
 
-create table emp03 as select * from emp where 1=0; --±¸Á¶¸¸ º¹»çÇÏ¿© Å×ÀÌºí »ý¼º
+create table emp03 as select * from emp where 1=0; --êµ¬ì¡°ë§Œ ë³µì‚¬í•˜ì—¬ í…Œì´ë¸” ìƒì„±
 select * from emp03;
 
 
 /*
-Å×ÀÌºíÀÇ ±¸Á¶ º¯°æ
-alter table : Å×ÀÌºí¿¡¼­ ÄÃ·³ÀÇ Ãß°¡, »èÁ¦, ÄÃ·³ÀÇ ÀÚ·áÇüÀÌ³ª ±æÀÌ¸¦ º¯°æÇÒ ¶§ »ç¿ë
+í…Œì´ë¸”ì˜ êµ¬ì¡° ë³€ê²½
+alter table : í…Œì´ë¸”ì—ì„œ ì»¬ëŸ¼ì˜ ì¶”ê°€, ì‚­ì œ, ì»¬ëŸ¼ì˜ ìžë£Œí˜•ì´ë‚˜ ê¸¸ì´ë¥¼ ë³€ê²½í•  ë•Œ ì‚¬ìš©
 
-add column      : »õ·Î¿î ÄÃ·³ Ãß°¡
-modify column   : ±âÁ¸ ÄÃ·³ ¼öÁ¤
-drop column     : ±âÁ¸ ÄÃ·³ »èÁ¦
+add column      : ìƒˆë¡œìš´ ì»¬ëŸ¼ ì¶”ê°€
+modify column   : ê¸°ì¡´ ì»¬ëŸ¼ ìˆ˜ì •
+drop column     : ê¸°ì¡´ ì»¬ëŸ¼ ì‚­ì œ
 */
 select * from emp01;
-alter table emp01 add(job varchar2(9)); --ÄÃ·³ Ãß°¡
+alter table emp01 add(job varchar2(9)); --ì»¬ëŸ¼ ì¶”ê°€
 
 /*
-modify(ÄÃ·³¸í, ÀÚ·áÇü(Å©±â))
-    1. ÇØ´ç ÄÃ·³¿¡ ÀÚ·á°¡ ¾ø´Â °æ¿ì
-        - ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å¸ÀÔÀ» º¯°æ
-        - ÄÃ·³ÀÇ Å©±â º¯°æ °¡´É
-    2. ÇØ´ç ÄÃ·³¿¡ ÀÚ·á°¡ ÀÖ´Â °æ¿ì
-        - ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å¸ÀÔ º¯°æ ºÒ°¡
-        - ÄÃ·³ÀÇ Å©±â¸¦ Å°¿ï ¼ö´Â ÀÖÁö¸¸ ÁÙÀÏ ¼ö´Â ¾øÀ½
+modify(ì»¬ëŸ¼ëª…, ìžë£Œí˜•(í¬ê¸°))
+    1. í•´ë‹¹ ì»¬ëŸ¼ì— ìžë£Œê°€ ì—†ëŠ” ê²½ìš°
+        - ì»¬ëŸ¼ì˜ ë°ì´í„° íƒ€ìž…ì„ ë³€ê²½
+        - ì»¬ëŸ¼ì˜ í¬ê¸° ë³€ê²½ ê°€ëŠ¥
+    2. í•´ë‹¹ ì»¬ëŸ¼ì— ìžë£Œê°€ ìžˆëŠ” ê²½ìš°
+        - ì»¬ëŸ¼ì˜ ë°ì´í„° íƒ€ìž… ë³€ê²½ ë¶ˆê°€
+        - ì»¬ëŸ¼ì˜ í¬ê¸°ë¥¼ í‚¤ìš¸ ìˆ˜ëŠ” ìžˆì§€ë§Œ ì¤„ì¼ ìˆ˜ëŠ” ì—†ìŒ
 */
 alter table emp01 modify(job varchar2(30));
 desc emp01;
 
---drop(ÄÃ·³¸í)
+--drop(ì»¬ëŸ¼ëª…)
 alter table emp01 drop(job);
 
---Å×ÀÌºí »èÁ¦
+--í…Œì´ë¸” ì‚­ì œ
 drop table emp01;
 drop table emp02;
 drop table emp03;
 select * from tab;
 
---ÈÞÁöÅë ºñ¿ì±â
+--íœ´ì§€í†µ ë¹„ìš°ê¸°
 desc recyclebin;
 select * from recyclebin;
 
-purge recyclebin; --ÈÞÁöÅë ºñ¿ì±â
+purge recyclebin; --íœ´ì§€í†µ ë¹„ìš°ê¸°
 
---ÈÞÁöÅë¿¡ ³ÖÁö ¾Ê°í ¹Ù·Î »èÁ¦
+--íœ´ì§€í†µì— ë„£ì§€ ì•Šê³  ë°”ë¡œ ì‚­ì œ
 
 create table emp012 as select * from emp where 1=0;
 drop table emp012 purge;
@@ -218,7 +218,7 @@ drop table emp012 purge;
 select * from tab;
 ROLLBACK;
 
---rename : Å×ÀÌºí ¸íÀ» º¯°æÇÔ - rename 1 to 2
+--rename : í…Œì´ë¸” ëª…ì„ ë³€ê²½í•¨ - rename 1 to 2
 create table emp01 as select * from emp;
 
 select * from emp01;
@@ -229,15 +229,15 @@ drop table emp02 purge;
 
 /*
     truncate
-    - Å×ÀÌºíÀÇ ¸ðµç ÇàÀ» Á¦°ÅÇÔ
-    Çü½Ä : truncate table Å×ÀÌºí¸í
+    - í…Œì´ë¸”ì˜ ëª¨ë“  í–‰ì„ ì œê±°í•¨
+    í˜•ì‹ : truncate table í…Œì´ë¸”ëª…
     
-    1. truncate ÇÏ¸é ¸ðµç ÇàÀÌ »èÁ¦µÊ + ÀúÀåµÇ´ø ÀúÀå°ø°£±îÁö »èÁ¦µÊ (·Ñ¹é ºÒ°¡)
-    2. DDL(µ¥ÀÌÅÍÁ¤ÀÇ¾ð¾î)ÀÇ ÀÏÁ¾ÀÎ ¸í·ÉÀÌ¹Ç·Î ·Ñ¹é µ¥ÀÌÅÍ°¡ »ý¼ºµÇÁö ¾Ê´Â´Ù.
-        delete ¸í·ÉÀ¸·Î Áö¿öÁø°Ç ·Ñ¹éÀ¸·Î º¹±¸µÇÁö¸¸ ¾ë ¾ÈµÊ
-    3. ÇàÀÇ ÀÎµ¦½ºµµ °°ÀÌ »èÁ¦µÈ´Ù.
-    4. ¿Ü·¡Å°°¡ ÂüÁ¶ÁßÀÎ Å×ÀÌºí¿¡´Â »ç¿ëÀÌ ºÒ°¡´ÉÇÏ´Ù.
-    5. »èÁ¦ Ã³¸®ÇÏ´Âµ¥ ¿¹±âÄ¡ ¸øÇÑ ¹®Á¦°¡ ¹ß»ýÇÒ ¼öµµ ÀÖ´Ù.
+    1. truncate í•˜ë©´ ëª¨ë“  í–‰ì´ ì‚­ì œë¨ + ì €ìž¥ë˜ë˜ ì €ìž¥ê³µê°„ê¹Œì§€ ì‚­ì œë¨ (ë¡¤ë°± ë¶ˆê°€)
+    2. DDL(ë°ì´í„°ì •ì˜ì–¸ì–´)ì˜ ì¼ì¢…ì¸ ëª…ë ¹ì´ë¯€ë¡œ ë¡¤ë°± ë°ì´í„°ê°€ ìƒì„±ë˜ì§€ ì•ŠëŠ”ë‹¤.
+        delete ëª…ë ¹ìœ¼ë¡œ ì§€ì›Œì§„ê±´ ë¡¤ë°±ìœ¼ë¡œ ë³µêµ¬ë˜ì§€ë§Œ ì–œ ì•ˆë¨
+    3. í–‰ì˜ ì¸ë±ìŠ¤ë„ ê°™ì´ ì‚­ì œëœë‹¤.
+    4. ì™¸ëž˜í‚¤ê°€ ì°¸ì¡°ì¤‘ì¸ í…Œì´ë¸”ì—ëŠ” ì‚¬ìš©ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
+    5. ì‚­ì œ ì²˜ë¦¬í•˜ëŠ”ë° ì˜ˆê¸°ì¹˜ ëª»í•œ ë¬¸ì œê°€ ë°œìƒí•  ìˆ˜ë„ ìžˆë‹¤.
 */
 select * from emp01;
 truncate table emp01;

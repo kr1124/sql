@@ -13,9 +13,9 @@ select * from professor;
 
 create table professor (
 profno      number(5) not null,
-name        varchar2(10) not null, --ÇÑ±Û ÀÌ¸§
+name        varchar2(10) not null, --í•œê¸€ ì´ë¦„
 ename       varchar2(20) not null, --english name
-position    varchar2(20) not null, --½Ã°£°­»ç, °âÀÓ, ÀüÀÓ
+position    varchar2(20) not null, --ì‹œê°„ê°•ì‚¬, ê²¸ì„, ì „ì„
 sal         number(4) not null,
 hiredate    date not null,
 age         number(3) not null,

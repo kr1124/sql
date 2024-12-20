@@ -31,4 +31,4 @@ select * from student;
 select * from zipcode;
 delete from student;
 
-select * from zipcode where gugun='³ë¿ø±¸';
+select * from zipcode where gugun='ë…¸ì›êµ¬';

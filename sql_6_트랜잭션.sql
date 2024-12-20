@@ -1,16 +1,16 @@
--------------------------------Transaction (Æ®·£Àè¼Ç)-------------------------------
+-------------------------------Transaction (íŠ¸ëžœìž­ì…˜)-------------------------------
 /*
     commit 
-        - ¸ðµç ÀÛ¾÷µéÀ» Á¤»óÀûÀ¸·Î Ã³¸®ÇÏ°Ú´Ù°í È®Á¤ÇÏ´Â ¸í·É¾î·Î
-          Æ®·£Àè¼ÇÀÇ Ã³¸®°úÁ¤À» µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¸ðµÎ ¹Ý¿µÇÏ±â À§ÇØ¼­ º¯°æµÈ ³»¿ëÀ» ¿µ±¸ ÀúÀåÇÔ
+        - ëª¨ë“  ìž‘ì—…ë“¤ì„ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬í•˜ê² ë‹¤ê³  í™•ì •í•˜ëŠ” ëª…ë ¹ì–´ë¡œ
+          íŠ¸ëžœìž­ì…˜ì˜ ì²˜ë¦¬ê³¼ì •ì„ ë°ì´í„°ë² ì´ìŠ¤ì— ëª¨ë‘ ë°˜ì˜í•˜ê¸° ìœ„í•´ì„œ ë³€ê²½ëœ ë‚´ìš©ì„ ì˜êµ¬ ì €ìž¥í•¨
           
     rollback
-        - ÀÛ¾÷Áß ¹®Á¦°¡ ¹ß»ýµÇ¾î¼­ Æ®·£Àè¼ÇÀÇ Ã³¸® °úÁ¤¿¡¼­ ¹ß»ýÇÑ º¯°æ »çÇ×À» Ãë¼ÒÇÏ´Â ¸í·É
-          ÀÌÀüÀÇ »óÅÂ·Î µÇµ¹¸²
+        - ìž‘ì—…ì¤‘ ë¬¸ì œê°€ ë°œìƒë˜ì–´ì„œ íŠ¸ëžœìž­ì…˜ì˜ ì²˜ë¦¬ ê³¼ì •ì—ì„œ ë°œìƒí•œ ë³€ê²½ ì‚¬í•­ì„ ì·¨ì†Œí•˜ëŠ” ëª…ë ¹
+          ì´ì „ì˜ ìƒíƒœë¡œ ë˜ëŒë¦¼
 
     savepoint
-        - ÇöÀçÀÇ Æ®·£Àè¼ÇÀ» ÀÛ°Ô ºÐÇÒÇÏ¿© Ã³¸®ÇÔ
-          ÀúÀåµÈ savepoint´Â rollback to savepoint ¹®À» »ç¿ëÇÏ¿© Ç¥½ÃÇÑ °÷±îÁö rollback °¡´É
+        - í˜„ìž¬ì˜ íŠ¸ëžœìž­ì…˜ì„ ìž‘ê²Œ ë¶„í• í•˜ì—¬ ì²˜ë¦¬í•¨
+          ì €ìž¥ëœ savepointëŠ” rollback to savepoint ë¬¸ì„ ì‚¬ìš©í•˜ì—¬ í‘œì‹œí•œ ê³³ê¹Œì§€ rollback ê°€ëŠ¥
 */
 
 delete from dept01;
@@ -20,11 +20,11 @@ select * from dept01;
 
 rollback;
 
-commit; -- ÀÛ¾÷ È®Á¤. rollbackÀ¸·Î µÇµ¹¸± ¼ö ¾øÀ½.
+commit; -- ìž‘ì—… í™•ì •. rollbackìœ¼ë¡œ ë˜ëŒë¦´ ìˆ˜ ì—†ìŒ.
 
 savepoint cori;
---ÇöÀç »óÅÂ ÀúÀå, ¿©±â¿¡´Â ±âÁ¸¿¡ ÁöÁ¤ÇØ ³õÀº savepoint°¡ Æ÷ÇÔµÊ
---µû¶ó¼­ ÀÌÈÄ »ý¼ºÇß¾ú´ø savepoint´Â ÀüºÎ ³¯¾Æ°¨
+--í˜„ìž¬ ìƒíƒœ ì €ìž¥, ì—¬ê¸°ì—ëŠ” ê¸°ì¡´ì— ì§€ì •í•´ ë†“ì€ savepointê°€ í¬í•¨ë¨
+--ë”°ë¼ì„œ ì´í›„ ìƒì„±í–ˆì—ˆë˜ savepointëŠ” ì „ë¶€ ë‚ ì•„ê°
 
 delete from dept01 where deptno = 30;
 savepoint c1;

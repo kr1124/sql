@@ -1,5 +1,5 @@
 /*
-    sqlÀÇ ÇÔ¼ö    
+    sqlì˜ í•¨ìˆ˜    
 */
 --select * from dual;
 select 24*60*60 from dual;
@@ -9,9 +9,9 @@ select deptno, sum(sal) from emp group by deptno HAVING detpno=30;
 
 
 /*
-    ´ÜÀÏÇà ÇÔ¼ö
+    ë‹¨ì¼í–‰ í•¨ìˆ˜
 */
---¹®ÀÚÇÔ¼ö
+--ë¬¸ìí•¨ìˆ˜
 select * from emp;
 select 'DataBase', upper('DataBase') from dual;
 select ename, lower(ename) from emp where deptno = 10;
@@ -23,7 +23,7 @@ select empno, lower(ename) from emp where length(ename)=4;
 select empno, ename, sal from emp where length(ename)>=6;
 
 select instr('DataBase', 'a') from dual;
-select instr('DataBase', 'a', 3, 1) from dual; --'DataBase'¿¡¼­ 'a'¸¦ Ã£´Âµ¥ 3¹øÂ°ºÎÅÍ ½ÃÀÛÇØ¼­ 1¹øÂ° a¸¦ Ã£À½
+select instr('DataBase', 'a', 3, 1) from dual; --'DataBase'ì—ì„œ 'a'ë¥¼ ì°¾ëŠ”ë° 3ë²ˆì§¸ë¶€í„° ì‹œì‘í•´ì„œ 1ë²ˆì§¸ aë¥¼ ì°¾ìŒ
 
 select substr('DataBase', 3) from dual;
 select substr('DataBase', 2, 3) from dual;
@@ -35,11 +35,11 @@ select trim(' 'from' database Programming') from dual;
 
 select ename, trim('S' from ename), trim('H' from ename) from emp where ename='SMITH';
 
---¼ıÀÚÇÔ¼ö
+--ìˆ«ìí•¨ìˆ˜
 /*
-    round : ¹İ¿Ã¸²
-    trunc : ¹ö¸²
-    mod : ³ª¸ÓÁö
+    round : ë°˜ì˜¬ë¦¼
+    trunc : ë²„ë¦¼
+    mod : ë‚˜ë¨¸ì§€
 */
 select round(45.294339402, 1) FROM dual;
 select round(45.294339402, 0) FROM dual;
@@ -52,10 +52,10 @@ select * from emp where mod(empno, 2)=1;
 select * from emp;
 
 /*
-    ³¯Â¥ ÇÔ¼ö
+    ë‚ ì§œ í•¨ìˆ˜
 */
 
-select sysdate-1 as ¾îÁ¦, sysdate+1 as ³»ÀÏ from dual;
+select sysdate-1 as ì–´ì œ, sysdate+1 as ë‚´ì¼ from dual;
 select sysdate, hiredate, months_between(sysdate, hiredate), round(months_between(sysdate, hiredate)), trunc(months_between(sysdate, hiredate)) from emp;
 select sysdate, hiredate, months_between(sysdate, hiredate), round(months_between(sysdate, hiredate)) from emp;
 
@@ -64,19 +64,19 @@ select ename, hiredate, add_months(hiredate, 3) from emp where deptno=10;
 
 /*
     next_day
-    ÇØ´ç ¿äÀÏ¿¡ °¡Àå °¡±î¿î ³¯Â¥¸¦ ±¸ÇÏ´Â ÇÔ¼ö
+    í•´ë‹¹ ìš”ì¼ì— ê°€ì¥ ê°€ê¹Œìš´ ë‚ ì§œë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
     
-    ÀÏ¿äÀÏºÎÅÍ 1, ¿ù¿äÀÏ 2 ...
+    ì¼ìš”ì¼ë¶€í„° 1, ì›”ìš”ì¼ 2 ...
 */
 select sysdate, next_day(sysdate, 3) from dual;
-select sysdate, next_day(sysdate, 'È­') from dual;
-select sysdate, next_day(sysdate, 'È­¿äÀÏ') from dual;
+select sysdate, next_day(sysdate, 'í™”') from dual;
+select sysdate, next_day(sysdate, 'í™”ìš”ì¼') from dual;
 
 alter session set NLS_LANGUAGE=AMERICAN;
 alter session set NLS_LANGUAGE=KOREAN;
 select sysdate, next_day(sysdate, 'Tuesday') from dual;
 
-select sysdate, last_day(sysdate) from dual; --ÇØ´ç ´ŞÀÇ ¸¶Áö¸· ³¯Â¥
+select sysdate, last_day(sysdate) from dual; --í•´ë‹¹ ë‹¬ì˜ ë§ˆì§€ë§‰ ë‚ ì§œ
 select sysdate, round(sysdate) from dual;
 select sysdate, round(sysdate, 'day') from dual;
 select sysdate, round(sysdate, 'month') from dual;
@@ -84,40 +84,40 @@ select sysdate, round(sysdate, 'year') from dual;
 
 select ename, hiredate, round(hiredate, 'month') from emp;
 /*
-    º¯È¯ÇÔ¼ö : ÀÚ·áÇüÀ» º¯È¯ÇÔ
+    ë³€í™˜í•¨ìˆ˜ : ìë£Œí˜•ì„ ë³€í™˜í•¨
     
-    TO_CHAR : ³¯Â¥Çü, ¼ıÀÚÇüÀ»
+    TO_CHAR : ë‚ ì§œí˜•, ìˆ«ìí˜•ì„
     TO_DATE : 
     TO_NUMBER : 
 */
 
 /*
-to_char(µ¥ÀÌÅÍ, 'Ç¥½Ã Çü½Ä')
+to_char(ë°ì´í„°, 'í‘œì‹œ í˜•ì‹')
 
-    YYYY    : ³âµµ 4ÀÚ¸®
-    YY      : ³âµµ 2ÀÚ¸®
-    MM      : ¿ùÀ» ¼ıÀÚ·Î
-    MON     : ¿ùÀ» ¾ËÆÄºªÀ¸·Î
-    DD      : ÀÏ
-    DAY     : ¿äÀÏ
-    DY      : ¿äÀÏÀ» ¾à¾î·Î
+    YYYY    : ë…„ë„ 4ìë¦¬
+    YY      : ë…„ë„ 2ìë¦¬
+    MM      : ì›”ì„ ìˆ«ìë¡œ
+    MON     : ì›”ì„ ì•ŒíŒŒë²³ìœ¼ë¡œ
+    DD      : ì¼
+    DAY     : ìš”ì¼
+    DY      : ìš”ì¼ì„ ì•½ì–´ë¡œ
 */
 select sysdate, to_char(sysdate, 'yyyy-dd-mm') from dual;
 select ename, hiredate, to_char(hiredate, 'yyyy dd-mm/day') from emp;
 
-select 0.0045 * 60 * 15 as "15ºĞ" from dual;
+select 0.0045 * 60 * 15 as "15ë¶„" from dual;
 
 /*
-½Ã°£ Ãâ·Â Çü½Ä
+ì‹œê°„ ì¶œë ¥ í˜•ì‹
 AM, PM
 A.M, P.M
 
-HH or HH12 : 12½Ã
-HH24 : 24½Ã
-MI : ºĞ
-SS : ÃÊ
+HH or HH12 : 12ì‹œ
+HH24 : 24ì‹œ
+MI : ë¶„
+SS : ì´ˆ
 */
-select to_char(sysdate, 'yyyy/mm/dd, hh24:mi,ss') from dual; --Æ¯¼ö¹®ÀÚ¸é Áß°£¿¡ ¸· ³Ö¾îµµ µÇ´Âµí
+select to_char(sysdate, 'yyyy/mm/dd, hh24:mi,ss') from dual; --íŠ¹ìˆ˜ë¬¸ìë©´ ì¤‘ê°„ì— ë§‰ ë„£ì–´ë„ ë˜ëŠ”ë“¯
 
 
 /*
@@ -125,20 +125,20 @@ to_date
 */
 select sysdate, trunc(sysdate-to_date('2024/01/01', 'yyyy/mm/dd')) from dual;
 select ename, hiredate from emp where hiredate=to_date('1981/02/20');
-select ename, hiredate from emp where hiredate=to_date('1981-02.20'); --±¸ºĞ¸¸ µÇ¸é ¹¹µç µÊ
+select ename, hiredate from emp where hiredate=to_date('1981-02.20'); --êµ¬ë¶„ë§Œ ë˜ë©´ ë­ë“  ë¨
 
 /*
 to_number
 */
-select '10,000' + '20,000' from dual; --¾ÈµÊ
+select '10,000' + '20,000' from dual; --ì•ˆë¨
 select to_number('10,000', '999,999') + to_number('20,000', '999,999') from dual;
 
 /*
-ÀÏ¹İÇÔ¼ö
+ì¼ë°˜í•¨ìˆ˜
 
-NVL     : Ã¹¹øÂ° ÀÎÀÚ·Î ¹ŞÀº NULL°ú °°À¸¸é µÎ¹øÀç ÀÎÀÚ·Î º¯°æ
-DECODE  : Ã¹¹øÂ° ÀÎÀÚ·Î ¹ŞÀº °ªÀ» Á¶°Ç¿¡ ¸ÂÃç º¯°æÇÔ(if¹®°ú À¯»ç)
-CASE    : Á¶°Ç¿¡ ¸Â´Â ¹®ÀåÀ» ¼öÇàÇÔ(switch¿Í À¯»ç)
+NVL     : ì²«ë²ˆì§¸ ì¸ìë¡œ ë°›ì€ NULLê³¼ ê°™ìœ¼ë©´ ë‘ë²ˆì¬ ì¸ìë¡œ ë³€ê²½
+DECODE  : ì²«ë²ˆì§¸ ì¸ìë¡œ ë°›ì€ ê°’ì„ ì¡°ê±´ì— ë§ì¶° ë³€ê²½í•¨(ifë¬¸ê³¼ ìœ ì‚¬)
+CASE    : ì¡°ê±´ì— ë§ëŠ” ë¬¸ì¥ì„ ìˆ˜í–‰í•¨(switchì™€ ìœ ì‚¬)
 */
 
 --nvl
@@ -152,9 +152,9 @@ select empno, ename, job, mgr, to_char(mgr, '9999'), nvl(to_char(mgr, '9999'), '
 
 
 /*
-decode(Ç¥Çö½Ä, Á¶°Ç1, °á°ú1,
-                Á¶°Ç2, °á°ú2,
-                Á¶°Ç3, °á°ú3)
+decode(í‘œí˜„ì‹, ì¡°ê±´1, ê²°ê³¼1,
+                ì¡°ê±´2, ê²°ê³¼2,
+                ì¡°ê±´3, ê²°ê³¼3)
 */
 select deptno,
     decode(deptno, 
@@ -165,18 +165,18 @@ select deptno,
     as dname
 from emp;
 
---Á÷±Ş¿¡ µû¸¥ º¸³Ê½º Áö±ŞÀ» decode·Î Ç¥Çö
+--ì§ê¸‰ì— ë”°ë¥¸ ë³´ë„ˆìŠ¤ ì§€ê¸‰ì„ decodeë¡œ í‘œí˜„
 select * from emp;
 select ename, job, sal, decode(job, 'MANAGER', sal*1.15, 'CLERK', sal*1.05, sal) as new_sal from emp;
 
 /*
 case
-    Á¶°Ç¿¡ µû¶ó ¼­·Î ´Ù¸¥ Ã³¸®°¡ °¡´ÉÇÔ
+    ì¡°ê±´ì— ë”°ë¼ ì„œë¡œ ë‹¤ë¥¸ ì²˜ë¦¬ê°€ ê°€ëŠ¥í•¨
     
-    case Ç¥Çö½Ä when Á¶°Ç½Ä1 then °á°ú1
-                 when Á¶°Ç½Ä2 then °á°ú2
-                 when Á¶°Ç½Ä3 then °á°ú3
-                 else °á°ú n
+    case í‘œí˜„ì‹ when ì¡°ê±´ì‹1 then ê²°ê³¼1
+                 when ì¡°ê±´ì‹2 then ê²°ê³¼2
+                 when ì¡°ê±´ì‹3 then ê²°ê³¼3
+                 else ê²°ê³¼ n
     end
 */
 select ename, deptno,
@@ -195,8 +195,8 @@ select ename, job, sal,
         when job='PRESIDENT' then sal
         end as bonus from emp;
 
-------------------------------------±×·ì ÇÔ¼ö------------------------------------        
---ÇÕ°è
+------------------------------------ê·¸ë£¹ í•¨ìˆ˜------------------------------------        
+--í•©ê³„
 select sum(sal) from emp;
 select to_char(sum(sal), '$99,000') from emp;
 
@@ -205,23 +205,23 @@ select min(sal), max(sal) from emp;
 
 --count
 select count(*), COUNT(comm) from emp;
-select count(distinct job) from emp; --Áßº¹Á¦°Å 
+select count(distinct job) from emp; --ì¤‘ë³µì œê±° 
 
 select hiredate from emp;
 select distinct trunc(hiredate, 'year') from emp;
 select count(trunc(hiredate, 'year')) from emp;
 
-select to_char(trunc(hiredate, 'year'), 'yy') as ¿¬µµ from emp;
+select to_char(trunc(hiredate, 'year'), 'yy') as ì—°ë„ from emp;
 
 select count(*) "total", sum(decode(to_char(hiredate, 'yyyy'), 1980, 1, 0)) "1980"
 from emp;
 
---group by : Æ¯Á¤ ÄÃ·³ °ªÀ» ±âÁØÀ¸·Î Å×ÀÌºíÀ» ±×·ìº°·Î ³ª´®
+--group by : íŠ¹ì • ì»¬ëŸ¼ ê°’ì„ ê¸°ì¤€ìœ¼ë¡œ í…Œì´ë¸”ì„ ê·¸ë£¹ë³„ë¡œ ë‚˜ëˆ”
 select deptno, sum(sal), round(avg(sal)) from emp group by deptno;
 
 select deptno, count(ename), count(comm) from emp group by deptno;
 
---having : ±×·ìÀÇ °á°ú¸¦ Á¦ÇÑÇÒ ¶§
+--having : ê·¸ë£¹ì˜ ê²°ê³¼ë¥¼ ì œí•œí•  ë•Œ
 select deptno, avg(sal) from emp group by deptno having avg(sal) >= 2000;
 
 select deptno, max(sal), min(sal) from emp group by deptno;
@@ -230,25 +230,25 @@ select deptno, max(sal), min(sal) from emp group by deptno having max(sal) >= 30
 
 /*
 join
- - ÇÑ °³ ÀÌ»óÀÇ Å×ÀÌºí¿¡¼­ ¿øÇÏ´Â °á°ú¸¦ ¾ò°íÀÚ ÇÒ ¶§ »ç¿ëÇÑ´Ù.
+ - í•œ ê°œ ì´ìƒì˜ í…Œì´ë¸”ì—ì„œ ì›í•˜ëŠ” ê²°ê³¼ë¥¼ ì–»ê³ ì í•  ë•Œ ì‚¬ìš©í•œë‹¤.
  
- 1. Equi Join    : µ¿ÀÏ ÄÃ·³À» ±âÁØÀ¸·Î Á¶ÀÎÇÑ´Ù.
- 2. NonEqui Join : µ¿ÀÏ ÄÃ·³ ¾øÀÌ ´Ù¸¥ Á¶°ÇÀ» »ç¿ëÇÏ¿© Á¶ÀÎÇÔ.
- 3. Outer Join   : Á¶ÀÎ Á¶°Ç¿¡ ¸¸Á·ÇÏÁö ¾Ê´Â Çàµµ Ãâ·ÂÇÔ.
- 4. Self Join    : ÇÑ Å×ÀÌºí ³»¿¡¼­ Á¶ÀÎÇÔ.
+ 1. Equi Join    : ë™ì¼ ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ì¡°ì¸í•œë‹¤.
+ 2. NonEqui Join : ë™ì¼ ì»¬ëŸ¼ ì—†ì´ ë‹¤ë¥¸ ì¡°ê±´ì„ ì‚¬ìš©í•˜ì—¬ ì¡°ì¸í•¨.
+ 3. Outer Join   : ì¡°ì¸ ì¡°ê±´ì— ë§Œì¡±í•˜ì§€ ì•ŠëŠ” í–‰ë„ ì¶œë ¥í•¨.
+ 4. Self Join    : í•œ í…Œì´ë¸” ë‚´ì—ì„œ ì¡°ì¸í•¨.
 
-±âº»ÀûÀÎ ±ÔÄ¢
- 1. Primary Key(±âº»Å°)¿Í Foreign Key(¿Ü·¡Å°)¸¦ ÅëÇÑ ´Ù¸¥ Å×ÀÌºí Çà°ú ¿¬°áÇÔ
- 2. ¿¬°á Key »ç¿ëÀ¸·Î Å×ÀÌºí°ú Å×ÀÌºíÀÌ °áÇÕÇÔ.
- 3. where Àı¿¡¼­ Á¶ÀÎ Á¶°ÇÀ» »ç¿ëÇÔ
- 4. ¸íÈ®¼ºÀ» À§ÇØ ÄÃ·³ ÀÌ¸§ ¾Õ¿¡ Å×ÀÌºí¸í, ¶Ç´Â Å×ÀÌºí º°ÄªÀ» ºÙÀÓ
+ê¸°ë³¸ì ì¸ ê·œì¹™
+ 1. Primary Key(ê¸°ë³¸í‚¤)ì™€ Foreign Key(ì™¸ë˜í‚¤)ë¥¼ í†µí•œ ë‹¤ë¥¸ í…Œì´ë¸” í–‰ê³¼ ì—°ê²°í•¨
+ 2. ì—°ê²° Key ì‚¬ìš©ìœ¼ë¡œ í…Œì´ë¸”ê³¼ í…Œì´ë¸”ì´ ê²°í•©í•¨.
+ 3. where ì ˆì—ì„œ ì¡°ì¸ ì¡°ê±´ì„ ì‚¬ìš©í•¨
+ 4. ëª…í™•ì„±ì„ ìœ„í•´ ì»¬ëŸ¼ ì´ë¦„ ì•ì— í…Œì´ë¸”ëª…, ë˜ëŠ” í…Œì´ë¸” ë³„ì¹­ì„ ë¶™ì„
 */
 
 /*
 --equi join
-    - Á¶ÀÎ ´ë»óÀÌ µÇ´Â µÎ Å×ÀÌºí¿¡¼­ 
-    °øÅëÀûÀ¸·Î Á¸ÀçÇÏ´Â ÄÃ·³ÀÇ °ªÀÌ ÀÏÄ¡µÇ´Â ÇàÀ» ¿¬°áÇÏ¿©
-    °á°ú¸¦ ¸¸µé¾î³»´Â Á¶ÀÎ
+    - ì¡°ì¸ ëŒ€ìƒì´ ë˜ëŠ” ë‘ í…Œì´ë¸”ì—ì„œ 
+    ê³µí†µì ìœ¼ë¡œ ì¡´ì¬í•˜ëŠ” ì»¬ëŸ¼ì˜ ê°’ì´ ì¼ì¹˜ë˜ëŠ” í–‰ì„ ì—°ê²°í•˜ì—¬
+    ê²°ê³¼ë¥¼ ë§Œë“¤ì–´ë‚´ëŠ” ì¡°ì¸
 */
 select deptno from emp;
 select deptno from dept;
@@ -257,11 +257,10 @@ select * from dept;
 
 select * from emp, dept where emp.deptno=dept.deptno;
 select e.empno, e.ename, e.deptno, d.deptno from emp e, dept d where e.deptno=d.deptno;
-select e.empno, e.ename, d,dname, e.dpetno, ;
 
 /*
 --non equi join
-    - Á¶ÀÎ ´ë»óÀÌ µÇ´Â µÎ Å×ÀÌºí¿¡¼­ ÄÃ·³ÀÇ °ªÀ» ¹üÀ§·Î ¼³Á¤ÇÏ¿© °á°ú¸¦ ¸¸µê
+    - ì¡°ì¸ ëŒ€ìƒì´ ë˜ëŠ” ë‘ í…Œì´ë¸”ì—ì„œ ì»¬ëŸ¼ì˜ ê°’ì„ ë²”ìœ„ë¡œ ì„¤ì •í•˜ì—¬ ê²°ê³¼ë¥¼ ë§Œë“¦
 */
 select * from salgrade;
 select e.ename, e.sal, s.grade from emp e, salgrade s where e.sal between s.losal and s.hisal;
@@ -269,56 +268,56 @@ select e.ename, e.sal, s.grade from emp e, salgrade s where e.sal >= s.losal and
 
 /*
 outer join
-    -ÇàÀÌ Á¶ÀÎ Á¶°ÇÀ» ¸¸Á·ÇÏÁö ¾ÊÀ» °æ¿ì ±× ÇàÀº °á°ú¿¡ ³ªÅ¸³ªÁö ¾Ê°Ô µÇ´Âµ¥
-    Á¶ÀÎ Á¶°Ç¿¡ ¸¸Á·ÇÏÁö ¾Ê¾Æµµ Ãâ·ÂÇÏ´Â Á¶ÀÎ
+    -í–‰ì´ ì¡°ì¸ ì¡°ê±´ì„ ë§Œì¡±í•˜ì§€ ì•Šì„ ê²½ìš° ê·¸ í–‰ì€ ê²°ê³¼ì— ë‚˜íƒ€ë‚˜ì§€ ì•Šê²Œ ë˜ëŠ”ë°
+    ì¡°ì¸ ì¡°ê±´ì— ë§Œì¡±í•˜ì§€ ì•Šì•„ë„ ì¶œë ¥í•˜ëŠ” ì¡°ì¸
 */
 select deptno from dept;
 select distinct(deptno) from emp;
 
-select e.ename, d.deptno, d.dname from emp e, dept d where e.deptno(+) = d.deptno order by deptno; --oracle½Ä Á¶ÀÎ
-select e.ename, d.deptno, d.dname from emp e right outer join dept d on e.deptno = d.deptno; -- À§¿Í °°À½
-select e.ename, e.deptno as Eno, d.deptno as Dno, d.dname from emp e, dept d; --ÀÏ´Ü Ä«¸£Æ¼½Ã¾È °öÀ» ÇØ µÎ Å×ÀÌºíÀ» ÇÕÄ¡°í, ±× Å×ÀÌºíÀÇ ÄÃ·³À» »Ì¾Æ³¿.
+select e.ename, d.deptno, d.dname from emp e, dept d where e.deptno(+) = d.deptno order by deptno; --oracleì‹ ì¡°ì¸
+select e.ename, d.deptno, d.dname from emp e right outer join dept d on e.deptno = d.deptno; -- ìœ„ì™€ ê°™ìŒ
+select e.ename, e.deptno as Eno, d.deptno as Dno, d.dname from emp e, dept d; --ì¼ë‹¨ ì¹´ë¥´í‹°ì‹œì•ˆ ê³±ì„ í•´ ë‘ í…Œì´ë¸”ì„ í•©ì¹˜ê³ , ê·¸ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì„ ë½‘ì•„ëƒ„.
 
 /*
 self join
-    -ÀÚ±â ÀÚ½Å°ú Á¶ÀÎ
-    from Àı ´ÙÀ½¿¡ µ¿ÀÏÇÑ Å×ÀÌºí¸íÀ» 2¹ø ±â¼úÇÏ°í where Àı¿¡ Á¶ÀÎ Á¶°ÇÀ» °É¾îÁÖ¾î¾ß ÇÔ
-    ÀÌ´ë ¼­·Î ´Ù¸¥ Å×ÀÌºíÀÎ °ÍÃ³·³ ÀÎ½Ä µÇµµ·Ï ´Ù¸¥ º°ÄªÀ» »ç¿ëÇÔ.
+    -ìê¸° ìì‹ ê³¼ ì¡°ì¸
+    from ì ˆ ë‹¤ìŒì— ë™ì¼í•œ í…Œì´ë¸”ëª…ì„ 2ë²ˆ ê¸°ìˆ í•˜ê³  where ì ˆì— ì¡°ì¸ ì¡°ê±´ì„ ê±¸ì–´ì£¼ì–´ì•¼ í•¨
+    ì´ëŒ€ ì„œë¡œ ë‹¤ë¥¸ í…Œì´ë¸”ì¸ ê²ƒì²˜ëŸ¼ ì¸ì‹ ë˜ë„ë¡ ë‹¤ë¥¸ ë³„ì¹­ì„ ì‚¬ìš©í•¨.
 */
 select work.ename, mana.mgr from emp work, emp mana;
 select work.ename, manager.ename from emp work, emp manager where work.mgr = manager.empno;
-select work.ename || 'ÀÇ ¸Å´ÏÀú´Â ', manager.ename || 'ÀÌ´Ù.' from emp work, emp manager where work.mgr = manager.empno;
+select work.ename || 'ì˜ ë§¤ë‹ˆì €ëŠ” ', manager.ename || 'ì´ë‹¤.' from emp work, emp manager where work.mgr = manager.empno;
 select * from emp;
 
 
 
 /*
 ANSI join
-    »ó¿ë µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Ç¥ÁØ ¾ğ¾î
-    ´Ù¸¥ DBMS¿ÍÀÇ È£È¯¼ºÀ» À§ÇØ¼­´Â ANSI joinÀ» »ç¿ëÇÏ´Â °ÍÀÌ ÁÁ´Ù.
+    ìƒìš© ë°ì´í„°ë² ì´ìŠ¤ì˜ í‘œì¤€ ì–¸ì–´
+    ë‹¤ë¥¸ DBMSì™€ì˜ í˜¸í™˜ì„±ì„ ìœ„í•´ì„œëŠ” ANSI joinì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì¢‹ë‹¤.
 
-1. Cross join(Ä«¸£Æ¼½Ã¾È °ö)
-    ÀÌÀü¿¡´Â ½°Ç¥(,)·Î Å×ÀÌºíÀ» ±¸ºĞÇÏ¿´À¸³ª ±× ´ë½Å cross joinÀ¸·Î ÁöÁ¤ÇÏ¸é µÈ´Ù.
+1. Cross join(ì¹´ë¥´í‹°ì‹œì•ˆ ê³±)
+    ì´ì „ì—ëŠ” ì‰¼í‘œ(,)ë¡œ í…Œì´ë¸”ì„ êµ¬ë¶„í•˜ì˜€ìœ¼ë‚˜ ê·¸ ëŒ€ì‹  cross joinìœ¼ë¡œ ì§€ì •í•˜ë©´ ëœë‹¤.
 */
-select * from emp e cross join dept d; --on ¸ø ¾¸
+select * from emp e cross join dept d; --on ëª» ì”€
 
 /*
 2. Inner Join
-    °øÅë ÄÃ·³À» '=' ºñ±³ ¿¬»êÀÚ¸¦ ÅëÇØ¼­ °°Àº °ªÀ» °¡Áö´Â ÇàÀ» ¿¬°áÇÏ´Â ¹æ¹ı
+    ê³µí†µ ì»¬ëŸ¼ì„ '=' ë¹„êµ ì—°ì‚°ìë¥¼ í†µí•´ì„œ ê°™ì€ ê°’ì„ ê°€ì§€ëŠ” í–‰ì„ ì—°ê²°í•˜ëŠ” ë°©ë²•
 */
-select * from emp e inner join dept d on e.deptno=d.deptno; --onÀº ÄÃ·³¸íÀÌ ´Ş¶óµµ µÊ.
-select * from emp e inner join dept d using(deptno); --usingÀº ÄÃ·³¸íÀÌ °°¾Æ¾ß ÇÔ.
+select * from emp e inner join dept d on e.deptno=d.deptno; --onì€ ì»¬ëŸ¼ëª…ì´ ë‹¬ë¼ë„ ë¨.
+select * from emp e inner join dept d using(deptno); --usingì€ ì»¬ëŸ¼ëª…ì´ ê°™ì•„ì•¼ í•¨.
 
 /*
 3. Natural Join
-    Á¶°Ç ÀıÀ» »ı·«ÇÏ°í natural joinÀ» »ç¿ëÇÏ¸é ÀÚµ¿ÀûÀ¸·Î ¸ğµç ÄÃ·³À» ´ë»óÀ¸·Î
-    °øÅëÄÃ·³À» Á¶»çÇÏ¿© ³»ºÎÀûÀ¸·Î Á¶ÀÎ¹®À» »ı¼ºÇÑ´Ù.
+    ì¡°ê±´ ì ˆì„ ìƒëµí•˜ê³  natural joinì„ ì‚¬ìš©í•˜ë©´ ìë™ì ìœ¼ë¡œ ëª¨ë“  ì»¬ëŸ¼ì„ ëŒ€ìƒìœ¼ë¡œ
+    ê³µí†µì»¬ëŸ¼ì„ ì¡°ì‚¬í•˜ì—¬ ë‚´ë¶€ì ìœ¼ë¡œ ì¡°ì¸ë¬¸ì„ ìƒì„±í•œë‹¤.
 */
 select * from emp e natural join dept d;
 
 /*
 4. Outer Join
-    left(right) outer join : ¿ŞÂÊ(¶Ç´Â ¿À¸¥ÂÊ)ÀÇ Å×ÀÌºíÀÇ °ªÀÌ ´©¶ôµÇÁö ¾Êµµ·Ï ÇÔ.
+    left(right) outer join : ì™¼ìª½(ë˜ëŠ” ì˜¤ë¥¸ìª½)ì˜ í…Œì´ë¸”ì˜ ê°’ì´ ëˆ„ë½ë˜ì§€ ì•Šë„ë¡ í•¨.
 */
 select e.ename, d.deptno, d.dname from emp e right outer join dept d on d.deptno=e.deptno;
 
